@@ -1,0 +1,7 @@
+<div class="input-holder">
+	<input #inputEmail type="text" class="form-control" email>
+	<button class="btn btn-success" (click)="sendEmail(inputEmail.value)">Отправить код</button>
+	{{serverResponse.response}}
+</div>
+
+<!-- <button class="sendemail" (click)='sendEmail()'>send email</button> -->

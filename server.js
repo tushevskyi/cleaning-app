@@ -6,7 +6,6 @@ const express    = require('express'),
 
 // Get our API routes
 const api = require('./server/routes/api');
-
 const app = express();
 
 // Parsers for POST data
@@ -27,7 +26,7 @@ app.get('*', (req, res) => {
 /**
  * Get port from environment and store in Express.
  */
-const port = process.env.PORT || '3000';
+const port = process.env.PORT || '8080';
 app.set('port', port);
 
 /**

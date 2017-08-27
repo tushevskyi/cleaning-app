@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EmailSmsComponent } from './email-sms.component';
+import { RandomNumberComponent } from './random-number.component';
 
-describe('EmailSmsComponent', () => {
-  let component: EmailSmsComponent;
-  let fixture: ComponentFixture<EmailSmsComponent>;
+describe('RandomNumberComponent', () => {
+  let component: RandomNumberComponent;
+  let fixture: ComponentFixture<RandomNumberComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ EmailSmsComponent ]
+      declarations: [ RandomNumberComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(EmailSmsComponent);
+    fixture = TestBed.createComponent(RandomNumberComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
