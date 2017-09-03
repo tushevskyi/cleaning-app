@@ -1,13 +1,15 @@
-const express    = require('express'),
-      router     = express.Router(),
-      nodemailer = require('nodemailer');
+const express    = require('express');
+const router     = express.Router();
+const nodemailer = require('nodemailer');
+const fs         = require('fs');
 
 /* GET api listing. */
 router.post('/', (req, res) => {
 	// need add email check on client and server
-	let mail = req.body.mail;
+	const mail      = req.body.mail;
+	const clientObj = {};
 
-	let transporter = nodemailer.createTransport({
+	const transporter = nodemailer.createTransport({
 		service: 'gmail',
 		auth: {
 			user: 'makeewlad@gmail.com',
@@ -15,26 +17,50 @@ router.post('/', (req, res) => {
 		}
 	});
 
-	let mailOptions = {
+	const mailOptions = {
 		from: 'makeewlad@gmail.com',
 		to: mail,
 		subject: 'Sending Email using Node.js', 
 		text: 'That was easy!'
 	};
 
-	let response = res => {
+	const response = res => {
 		return {'response': res};
 	};
 
-	transporter.sendMail(mailOptions, function(error, info) {
-		if (error) {
-			console.log('error');
-			res.send(response(false));
+	const sendEmail = () => {
+		transporter.sendMail(mailOptions, function(error, info) {
+			if (error) {
+				console.log('error ' + error);
+				res.send(response(false));
+				console.log(req.body);
+			} else {
+				console.log('Email sent: ' + info.response);
+				res.send(response(true));
+			}
+		});
+	}
+	
+	const saveIpMail = (db,ip,mail) => {
+		if(db.hasOwnProperty(ip)) {
+			return false;
 		} else {
-			console.log('Email sent: ' + info.response);
-			res.send(response(true));
+			db[ip] = mail;
+			return true;
 		}
-	});
+	}
+
+	const checkIp = ip => {
+		if(saveIp(ip)) {
+			sendEmail();
+		} else {
+			console.log('timer start')
+			setTimeout(sendEmail, 60000);
+		}
+	}
+
+	checkIp(req.connection.remoteAddress);
+
 });
 
 module.exports = router;

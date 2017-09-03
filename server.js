@@ -2,7 +2,9 @@
 const express    = require('express'),
 	  path       = require('path'),
  	  http       = require('http'),
- 	  bodyParser = require('body-parser');
+ 	  bodyParser = require('body-parser'),
+ 	  helmet     = require('helmet'),
+ 	  mongoose   = require('mongoose');
 
 // Get our API routes
 const api = require('./server/routes/api');
@@ -12,8 +14,12 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
+//npm helmet for data transfer security
+app.use(helmet());
+
 // Point static path to dist
 app.use(express.static(path.join(__dirname, 'dist')));
+
 
 // Set our api routes
 app.use('/api', api);
