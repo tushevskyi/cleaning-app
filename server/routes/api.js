@@ -6,8 +6,7 @@ const fs         = require('fs');
 /* GET api listing. */
 router.post('/', (req, res) => {
 	// need add email check on client and server
-	const mail      = req.body.mail;
-	const clientObj = {};
+	const mail      = req.body.mail;   
 
 	const transporter = nodemailer.createTransport({
 		service: 'gmail',
@@ -40,26 +39,21 @@ router.post('/', (req, res) => {
 			}
 		});
 	}
+
+	const saveClientInfo = (ip,mail) => {
+		const buffer = fs.readFile('../clientInfo.json');
+		const data = JSON.stringify(buffer.toString());
+
+		if(data.clientObj.hasOwnProperty(ip)) {
+			setTimeOut(sendMail, 60000);
+		} else {
+			data.clientObj[ip] = mail;
+			sendMail;
+		}
+	};
 	
-	const saveIpMail = (db,ip,mail) => {
-		if(db.hasOwnProperty(ip)) {
-			return false;
-		} else {
-			db[ip] = mail;
-			return true;
-		}
-	}
 
-	const checkIp = ip => {
-		if(saveIp(ip)) {
-			sendEmail();
-		} else {
-			console.log('timer start')
-			setTimeout(sendEmail, 60000);
-		}
-	}
-
-	checkIp(req.connection.remoteAddress);
+	//req.connection.remoteAddress
 
 });
 
