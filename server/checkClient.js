@@ -2,7 +2,10 @@
 
 const fs = require('fs');
 
-const buffer = fs.readFileSync('clientInfo.json');
-const src = buffer.toString();
-const lines = 'test';
-fs.writeFileSync('clientInfo.json', lines);
+fs.readFile('clientInfo.json', 'utf8', function (err, data) {
+    if (err) throw err; // we'll not consider error handling for now
+    let db = JSON.parse(data);
+    console.log(db[0]['id']);
+});
+
+// fs.writeFileSync('clientInfo.json', lines);

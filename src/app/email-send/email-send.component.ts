@@ -1,32 +1,31 @@
-import { Component, OnInit }     from '@angular/core';
-import { HttpClient }            from '@angular/common/http';
-
-interface mailObj {
-  mail: string;
-}
+import { Component, OnInit } from '@angular/core';
+import { SendEmailService }  from '../send-email.service'; 
 
 @Component({
   selector: 'app-email-send',
   templateUrl: './email-send.component.html',
-  styleUrls: ['./email-send.component.css']
+  styleUrls: ['./email-send.component.css'],
+  providers:  [ SendEmailService ]
 })
 
 export class EmailSendComponent implements OnInit {
 
-  clientMail: mailObj;
-  serverResponse: object = { response: ''};
+  sendmail: any;
+  response: any;
 
-  constructor(private http: HttpClient) {}
+  constructor(private service: SendEmailService) {}
 
   ngOnInit() {}
 
-  sendEmail(userMail: string) {
-  	this.clientMail = { mail: userMail };
-  	this.http.post('/api',  this.clientMail).subscribe( data => {
-      this.serverResponse = data;
-    });
+  sendEmail(clientMail): any {
+    this.sendmail = this.service.sendEmail(clientMail)
+      .subscribe( data => { 
+        this.response = data;
+        console.log(this.response);
+      });
   }
 
+ 
 }
 
 

@@ -24,7 +24,8 @@ router.post('/', (req, res) => {
 	};
 
 	const response = res => {
-		return {'response': res};
+		console.log(res);
+		return res;
 	};
 
 	const sendEmail = () => {
@@ -40,17 +41,19 @@ router.post('/', (req, res) => {
 		});
 	}
 
-	const saveClientInfo = (ip,mail) => {
-		const buffer = fs.readFile('../clientInfo.json');
-		const data = JSON.stringify(buffer.toString());
+	sendEmail();
 
-		if(data.clientObj.hasOwnProperty(ip)) {
-			setTimeOut(sendMail, 60000);
-		} else {
-			data.clientObj[ip] = mail;
-			sendMail;
-		}
-	};
+	// const saveClientInfo = (ip,mail) => {
+	// 	const buffer = fs.readFile('../clientInfo.json');
+	// 	const data = JSON.stringify(buffer.toString());
+
+	// 	if(data.clientObj.hasOwnProperty(ip)) {
+	// 		setTimeOut(sendMail, 60000);
+	// 	} else {
+	// 		data.clientObj[ip] = mail;
+	// 		sendMail;
+	// 	}
+	// };
 	
 
 	//req.connection.remoteAddress

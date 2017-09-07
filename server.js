@@ -3,8 +3,7 @@ const express    = require('express'),
 	  path       = require('path'),
  	  http       = require('http'),
  	  bodyParser = require('body-parser'),
- 	  helmet     = require('helmet'),
- 	  mongoose   = require('mongoose');
+ 	  helmet     = require('helmet');
 
 // Get our API routes
 const api = require('./server/routes/api');
