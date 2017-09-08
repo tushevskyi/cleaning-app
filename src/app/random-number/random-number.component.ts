@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-random-number',
   templateUrl: './random-number.component.html',
-  styleUrls: ['./random-number.component.css']
+  styleUrls: ['./random-number.component.sass']
 })
 export class RandomNumberComponent implements OnInit {
 

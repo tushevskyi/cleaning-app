@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-price',
   templateUrl: './price.component.html',
-  styleUrls: ['./price.component.css']
+  styleUrls: ['./price.component.sass']
 })
 export class PriceComponent implements OnInit {
 
@@ -14,27 +14,27 @@ export class PriceComponent implements OnInit {
   	this.makeId = this.priceModalId();
   	this.prices_info = [
 	  	{
-			img:'/assets/img/price-img/cabin.png',
+			img:'/assets/img/price-img/coat.png',
 			id: `#portfolioModal${this.makeId()}`
 	  	},
 	  	{
-	  		img:'/assets/img/price-img/circus.png',
+	  		img:'/assets/img/price-img/suite.png',
 			id: `#portfolioModal${this.makeId()}`
 	  	},
 	  	{
-	  		img:'/assets/img/price-img/cake.png',
+	  		img:'/assets/img/price-img/fur.png',
 			id: `#portfolioModal${this.makeId()}`
 	  	},
 	  	{
-	  		img:'/assets/img/price-img/game.png',
+	  		img:'/assets/img/price-img/clothes.png',
 			id: `#portfolioModal${this.makeId()}`
 	  	},
 	  	{
-	  		img:'/assets/img/price-img/safe.png',
+	  		img:'/assets/img/price-img/kids.png',
 			id: `#portfolioModal${this.makeId()}`
 	  	},
 	  	{
-	  		img:'/assets/img/price-img/submarine.png',
+	  		img:'/assets/img/price-img/carpet.png',
 			id: `#portfolioModal${this.makeId()}`
 	  	},
   	]

@@ -1,7 +1,8 @@
-const express    = require('express');
-const router     = express.Router();
-const nodemailer = require('nodemailer');
-const fs         = require('fs');
+const express     = require('express');
+const router      = express.Router();
+const nodemailer  = require('nodemailer');
+const fs          = require('fs');
+const clientCheck = require('../checkClient');
 
 /* GET api listing. */
 router.post('/', (req, res) => {
@@ -11,13 +12,13 @@ router.post('/', (req, res) => {
 	const transporter = nodemailer.createTransport({
 		service: 'gmail',
 		auth: {
-			user: 'makeewlad@gmail.com',
-			pass: 'zbxyjtujdyj'
+			user: 'vesch.promo@gmail.com',
+			pass: 'VsegdaMolodoi01'
 		}
 	});
 
 	const mailOptions = {
-		from: 'makeewlad@gmail.com',
+		from: 'vesch.promo@gmail.com',
 		to: mail,
 		subject: 'Sending Email using Node.js', 
 		text: 'That was easy!'

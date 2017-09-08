@@ -4,7 +4,7 @@ import { SendEmailService }  from '../send-email.service';
 @Component({
   selector: 'app-email-send',
   templateUrl: './email-send.component.html',
-  styleUrls: ['./email-send.component.css'],
+  styleUrls: ['./email-send.component.sass'],
   providers:  [ SendEmailService ]
 })
 
