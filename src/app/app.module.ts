@@ -11,9 +11,10 @@ import { EmailSendComponent }  from './email-send/email-send.component';
 import { PriceModalComponent } from './price-modal/price-modal.component';
 import { RandomNumberComponent } from './random-number/random-number.component';
 import { HeaderComponent } from './header/header.component';
+import { SmssendComponent } from './smssend/smssend.component';
 
 @NgModule({
-  declarations: [AppComponent, PriceComponent, EmailSendComponent, PriceModalComponent, RandomNumberComponent, HeaderComponent],
+  declarations: [AppComponent, PriceComponent, EmailSendComponent, PriceModalComponent, RandomNumberComponent, HeaderComponent, SmssendComponent],
   imports: [BrowserModule, FormsModule, HttpClientModule, NgbModule.forRoot()],
   providers: [],
   bootstrap: [AppComponent]

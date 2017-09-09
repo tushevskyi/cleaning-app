@@ -14,7 +14,7 @@ export class SendEmailService {
 
   sendEmail(userMail: string): any {
   	this.clientMail = { mail: userMail };
-  	return this.http.post('/api', this.clientMail);
+  	return this.http.post('/emailsend', this.clientMail);
   }
 
 }

@@ -1,27 +1,58 @@
-// Get dependencies
-const express    = require('express'),
-	  path       = require('path'),
- 	  http       = require('http'),
- 	  bodyParser = require('body-parser'),
- 	  helmet     = require('helmet');
+'use strict';
 
-// Get our API routes
-const api = require('./server/routes/api');
+// Get dependencies
+const express        = require('express');
+const path           = require('path');
+const http           = require('http');
+const bodyParser     = require('body-parser');
+const helmet         = require('helmet');
+const admin          = require('firebase-admin');
+const serviceAccount = require('./server/vesch-cleaning-app-firebase-adminsdk.json');
+
+//initialize firebase database
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount),
+  databaseURL: "https://vesch-cleaning-app.firebaseio.com"
+});
+
+const db  = admin.database();
+const ref = db.ref("server");
+const usersRef = ref.child("clients");
+usersRef.set({
+  alanisawesome: {
+    date_of_birth: "June 23, 1912",
+    full_name: "Alan Turing"
+  },
+  gracehop: {
+    date_of_birth: "December 9, 1906",
+    full_name: "Grace Hopper"
+  }
+});
+
+const graceHop = usersRef.child("gracehop");
+graceHop.update({
+	nick_name: 'supper_power'
+})
+
+// get emailsend routes
+const emailsend = require('./server/routes/emailsend');
+const smssend = require('./server/routes/smssend');
 const app = express();
+
+//npm helmet for data transfer security
+app.use(helmet());
 
 // Parsers for POST data
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-
-//npm helmet for data transfer security
-app.use(helmet());
 
 // Point static path to dist
 app.use(express.static(path.join(__dirname, 'dist')));
 
 
 // Set our api routes
-app.use('/api', api);
+app.use('/emailsend', emailsend);
+app.use('/smssend', smssend);
 
 // Catch all other routes and return the index file
 app.get('*', (req, res) => {

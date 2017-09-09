@@ -1,0 +1,5 @@
+<div class="input-holder">	
+	<input #inputPhone type="text" name="inputPhone" class="form-control" required>
+	<button class="btn btn-success" (click)="sendSms(inputPhone.value)">Отправить код на мобильный</button>
+	{{response}}
+</div>

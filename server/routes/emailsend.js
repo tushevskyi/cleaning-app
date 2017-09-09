@@ -1,13 +1,14 @@
+'use strict';
+
 const express     = require('express');
 const router      = express.Router();
 const nodemailer  = require('nodemailer');
 const fs          = require('fs');
-const clientCheck = require('../checkClient');
 
 /* GET api listing. */
 router.post('/', (req, res) => {
 	// need add email check on client and server
-	const mail      = req.body.mail;   
+	const mail = req.body.mail;   
 
 	const transporter = nodemailer.createTransport({
 		service: 'gmail',
@@ -43,19 +44,6 @@ router.post('/', (req, res) => {
 	}
 
 	sendEmail();
-
-	// const saveClientInfo = (ip,mail) => {
-	// 	const buffer = fs.readFile('../clientInfo.json');
-	// 	const data = JSON.stringify(buffer.toString());
-
-	// 	if(data.clientObj.hasOwnProperty(ip)) {
-	// 		setTimeOut(sendMail, 60000);
-	// 	} else {
-	// 		data.clientObj[ip] = mail;
-	// 		sendMail;
-	// 	}
-	// };
-	
 
 	//req.connection.remoteAddress
 
