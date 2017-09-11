@@ -8,7 +8,8 @@ const fs          = require('fs');
 /* GET api listing. */
 router.post('/', (req, res) => {
 	// need add email check on client and server
-	const mail = req.body.mail;   
+	const mail      = req.body.mail;   
+	const promoCode = req.body.promoCode;
 
 	const transporter = nodemailer.createTransport({
 		service: 'gmail',
@@ -21,8 +22,8 @@ router.post('/', (req, res) => {
 	const mailOptions = {
 		from: 'vesch.promo@gmail.com',
 		to: mail,
-		subject: 'Sending Email using Node.js', 
-		text: 'That was easy!'
+		subject: 'Участие в акции от Vesch', 
+		text: `Ваш акционный код ${promoCode}`
 	};
 
 	const response = res => {

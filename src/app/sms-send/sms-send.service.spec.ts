@@ -1,15 +1,15 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { SendSmsService } from './send-sms.service';
+import { SmsSendService } from './sms-send.service';
 
 describe('SendSmsService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [SendSmsService]
+      providers: [SmsSendService]
     });
   });
 
-  it('should be created', inject([SendSmsService], (service: SendSmsService) => {
+  it('should be created', inject([SmsSendService], (service: SmsSendService) => {
     expect(service).toBeTruthy();
   }));
 });

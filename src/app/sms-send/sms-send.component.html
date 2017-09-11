@@ -1,0 +1,7 @@
+<div class="input-holder">	
+	<div *ngIf="successStatus" class="sms-send-report">Ваш код {{promoCode}}</div>
+	<input #inputPhone type="text" name="inputPhone" class="form-control" required>
+	<button class="btn btn-success" (click)="smsSend(inputPhone.value)">Отправить код на мобильный</button>
+</div>
+<!-- share promo code from sms-component to email-component -->
+<app-email-send [promoCode]="promoCode"></app-email-send>

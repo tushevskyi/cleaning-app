@@ -1,24 +1,27 @@
-import { Component, OnInit } from '@angular/core';
-import { SendEmailService }  from '../send-email.service'; 
+import { Component, OnInit, Input } from '@angular/core';
+import { EmailSendService }  from './email-send.service'; 
 
 @Component({
   selector: 'app-email-send',
   templateUrl: './email-send.component.html',
   styleUrls: ['./email-send.component.sass'],
-  providers:  [ SendEmailService ]
+  providers:  [ EmailSendService ]
 })
 
 export class EmailSendComponent implements OnInit {
 
-  sendmail: any;
-  response: any;
+  emailsend: any;
+  response: object;
 
-  constructor(private service: SendEmailService) {}
+
+  constructor(private service: EmailSendService) {}
+
+  @Input() promoCode: number;
 
   ngOnInit() {}
 
-  sendEmail(clientMail): any {
-    this.sendmail = this.service.sendEmail(clientMail)
+  emailSend(clientMail): any {
+    this.emailsend = this.service.emailSendRequest(clientMail, this.promoCode)
       .subscribe( data => { 
         this.response = data;
         console.log(this.response);
@@ -32,5 +35,5 @@ export class EmailSendComponent implements OnInit {
 /*todo list
 validate email on client and server
 save email data
-return callback with ok if maillsend
+return callback with ok if maillsend +
 */

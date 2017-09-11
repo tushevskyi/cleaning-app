@@ -5,16 +5,15 @@ import { HttpClientModule }    from '@angular/common/http';
 import {FormsModule}           from '@angular/forms';
 
 
-import { AppComponent }        from './app.component';
-import { PriceComponent }      from './price/price.component';
-import { EmailSendComponent }  from './email-send/email-send.component';
-import { PriceModalComponent } from './price-modal/price-modal.component';
-import { RandomNumberComponent } from './random-number/random-number.component';
-import { HeaderComponent } from './header/header.component';
-import { SmssendComponent } from './smssend/smssend.component';
+import { AppComponent }          from './app.component';
+import { PriceComponent }        from './price/price.component';
+import { EmailSendComponent }    from './email-send/email-send.component';
+import { PriceModalComponent }   from './price-modal/price-modal.component';
+import { HeaderComponent }       from './header/header.component';
+import { SmsSendComponent }      from './sms-send/sms-send.component';
 
 @NgModule({
-  declarations: [AppComponent, PriceComponent, EmailSendComponent, PriceModalComponent, RandomNumberComponent, HeaderComponent, SmssendComponent],
+  declarations: [AppComponent, PriceComponent, EmailSendComponent, PriceModalComponent, HeaderComponent, SmsSendComponent],
   imports: [BrowserModule, FormsModule, HttpClientModule, NgbModule.forRoot()],
   providers: [],
   bootstrap: [AppComponent]

@@ -3,17 +3,18 @@ import { HttpClient } from '@angular/common/http';
 
 interface mailObj {
   mail: string;
+  promoCode: number;
 }
 
 @Injectable()
-export class SendEmailService {
+export class EmailSendService {
 
   clientMail: mailObj;
 
   constructor(private http: HttpClient) { }
 
-  sendEmail(userMail: string): any {
-  	this.clientMail = { mail: userMail };
+  emailSendRequest(userMail: string, promoCode: number): any {
+  	this.clientMail = { mail: userMail, promoCode: promoCode};
   	return this.http.post('/emailsend', this.clientMail);
   }
 
