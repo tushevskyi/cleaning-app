@@ -1,22 +1,34 @@
 'use strict';
 
 // Get dependencies
-const express        = require('express');
-const path           = require('path');
-const http           = require('http');
-const bodyParser     = require('body-parser');
-const helmet         = require('helmet');
-// const admin          = require('firebase-admin');
-// const serviceAccount = require('./server/vesch-cleaning-app-firebase-adminsdk.json');
+const express                = require('express');
+const path                   = require('path');
+const http                   = require('http');
+const bodyParser             = require('body-parser');
+const helmet                 = require('helmet');
+const admin                  = require('firebase-admin');
+const serviceFirebaseAccount = require('./server/vesch-cleaning-app-firebase-adminsdk.json');
+
+const coolbear =
+  "    ('-^-/')  \n" +
+  "    `o__o' ]  \n" +
+  "    (_Y_) _/  \n" +
+  "  _..`--'-.`, \n" +
+  " (__)_,--(__) \n" +
+  "     7:   ; 1 \n" +
+  "   _/,`-.-' : \n" +
+  "  (_,)-~~(_,) \n";
+
+console.log(coolbear);  
 
 //initialize firebase database
-// admin.initializeApp({
-//   credential: admin.credential.cert(serviceAccount),
-//   databaseURL: "https://vesch-cleaning-app.firebaseio.com"
-// });
+admin.initializeApp({
+  credential: admin.credential.cert(serviceFirebaseAccount),
+  databaseURL: "https://vesch-cleaning-app.firebaseio.com"
+});
 
-// const db  = admin.database();
-// const ref = db.ref("clients");
+const db  = admin.database();
+const ref = db.ref("clients");
 // const newCLient = ref.push({
 //   phone_number: "+380938285592",
 //   promo_code: 23423423
@@ -28,6 +40,8 @@ const helmet         = require('helmet');
 // graceHop.update({
 // 	nick_name: 'supper_power'
 // })
+
+module.exports.db = db;
 
 // get emailsend routes
 const emailsend = require('./server/routes/emailsend');
@@ -68,4 +82,4 @@ const server = http.createServer(app);
 /**
  * Listen on provided port, on all network interfaces.
  */
-server.listen(port, () => console.log(`API running on localhost:${port}`));
+server.listen(port, () => console.log(`API running on port:${port}`));

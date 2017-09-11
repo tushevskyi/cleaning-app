@@ -1,14 +1,7 @@
 'use strict';
-const admin                  = require('firebase-admin');
-const serviceFirebaseAccount = require('./vesch-cleaning-app-firebase-adminsdk.json');
+const server = require('../server');
 
-admin.initializeApp({
-  credential: admin.credential.cert(serviceFirebaseAccount),
-  databaseURL: "https://vesch-cleaning-app.firebaseio.com"
-});
-
-const db  		   = admin.database();
-const promoCodeRef = db.ref("promo_codes");
+const promoCodeRef = server.db.ref("promo_codes");
 
 const getRundomNumber = () => {
 	const MIN = 10000;
@@ -25,7 +18,7 @@ const checkCodeInDb = (callback) => {
     const exists = (snapshot.val() === 'true');
 
     if (!exists) {
-    	// console.log('user ' + code + ' does not exist!');
+    	console.log('user ' + code + ' does not exist!');
 		const promoCode = promoCodeRef.child(code);
 		promoCode.set('true');
 		callback(code);
