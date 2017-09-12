@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { SmsSendService }	 from './sms-send.service';
+import { Component, OnInit, Input } from '@angular/core';
+import { SmsSendService }	   from './sms-send.service';
 
 @Component({
   selector: 'app-sms-send',
@@ -14,11 +14,14 @@ export class SmsSendComponent implements OnInit {
   response: object;
   promoCode: number; 
   successStatus: boolean;
+  mask: any[] = ['+', '3', '8', ' ', '(', /[0-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
+
+  
 
   constructor(private service: SmsSendService) {}
 
   ngOnInit() {}
-
+ 
   smsSend(user_phone): void {
   	this.smssend = this.service.smsSendRequest(user_phone)
   	  .subscribe( data => { 

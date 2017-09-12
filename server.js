@@ -19,6 +19,7 @@ const coolbear =
   "   _/,`-.-' : \n" +
   "  (_,)-~~(_,) \n";
 
+
 console.log(coolbear);  
 
 //initialize firebase database
@@ -28,7 +29,9 @@ admin.initializeApp({
 });
 
 const db  = admin.database();
-const ref = db.ref("clients");
+
+module.exports.db = db;
+// const ref = db.ref("clients");
 // const newCLient = ref.push({
 //   phone_number: "+380938285592",
 //   promo_code: 23423423
@@ -40,8 +43,6 @@ const ref = db.ref("clients");
 // graceHop.update({
 // 	nick_name: 'supper_power'
 // })
-
-module.exports.db = db;
 
 // get emailsend routes
 const emailsend = require('./server/routes/emailsend');
