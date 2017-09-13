@@ -1,25 +1,40 @@
 'use strict';
-const server  = require('../../server');
-const smssend = require('../routes/smssend');
 
-const phoneNumberRef = server.db.ref("phone_numbers");
+const dbModule = require('../database/db');
+const phoneNumberRef = dbModule.db.ref('phone_numbers');
 
-const checkProneNumber = (number) => {
+const checkPhoneNumber = (number) => {
 
-	return phoneNumberRef.child(number).once('value').then((snapshot) => {
+	const validPhoneNumber = phoneNumberValidate(number);
+
+	if (validPhoneNumber === 'corrupt') {
+		return 'corrupt';
+	}
+
+	return phoneNumberRef.child(validPhoneNumber).once('value').then((snapshot) => {
 	  	const exists = (snapshot.val() === 'true');
 
 		if (!exists) {
-			console.log('number ' + number + ' saved in db!');
-			const phoneNumber = phoneNumberRef.child(number);
+			console.log('number ' + validPhoneNumber + ' saved in db!');
+			const phoneNumber = phoneNumberRef.child(validPhoneNumber);
 			phoneNumber.set('true');
-			return number;
+			return validPhoneNumber;
 		} else {
-			console.log('number ' + number + ' exists in db!');
-			return "";
+			console.log('number ' + validPhoneNumber + ' exists in db!');
+			return 'exists in db';
 		}
 	});
 }
 
-module.exports.checkProneNumber = checkProneNumber;
+const phoneNumberValidate = (phone_number) => {
+	const mask = '380931234567';
+	const phoneNumber   = phone_number.replace(/\D/g,'');
 
+	if(phoneNumber.length !== mask.length) {
+		return 'corrupt';
+	}
+
+	return phoneNumber;
+}
+
+module.exports.checkPhoneNumber = checkPhoneNumber;

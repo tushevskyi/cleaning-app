@@ -1,14 +1,12 @@
 <div class="input-holder">	
 	<div *ngIf="successStatus" class="sms-send-report">Ваш код {{promoCode}}</div>
-	<input  [(ngModel)]="phoneNumber" 
-			#inputPhone 
+	<input  #inputPhone 
 			type="text" 
 			name="inputPhone" 
 			placeholder="+38(___) ___ __ __" 
 			[textMask]="{mask: mask}" 
 			class="form-control" required>
 	<button class="btn btn-success" (click)="smsSend(inputPhone.value)">Отправить код на мобильный</button>
-	{{phoneNumber}}
 </div>
 
 <!-- share promo code from sms-component to email-component -->

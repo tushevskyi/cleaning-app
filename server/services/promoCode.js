@@ -1,14 +1,14 @@
 'use strict';
-const server = require('../../server');
 
-const promoCodeRef = server.db.ref("promo_codes");
+const dbModule = require('../database/db'); 
+const promoCodeRef = dbModule.db.ref('promo_codes');
 
 const getRundomNumber = () => {
 	const MIN = 10000;
 	const MAX = 99999;
 	const NUM = Math.floor(Math.random() * (MAX - MIN + 1)) + MIN;	
 	return NUM;
-};
+}; 
 
 const checkCode = () => {
   	const code = getRundomNumber();

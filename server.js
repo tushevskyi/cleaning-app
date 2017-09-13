@@ -1,13 +1,11 @@
 'use strict';
 
 // Get dependencies
-const express                = require('express');
-const path                   = require('path');
-const http                   = require('http');
-const bodyParser             = require('body-parser');
-const helmet                 = require('helmet');
-const admin                  = require('firebase-admin');
-const serviceFirebaseAccount = require('./server/vesch-cleaning-app-firebase-adminsdk.json');
+const express    = require('express');
+const path       = require('path');
+const http       = require('http');
+const bodyParser = require('body-parser');
+const helmet     = require('helmet');
 
 const coolbear =
   "    ('-^-/')  \n" +
@@ -22,32 +20,10 @@ const coolbear =
 
 console.log(coolbear);  
 
-//initialize firebase database
-admin.initializeApp({
-  credential: admin.credential.cert(serviceFirebaseAccount),
-  databaseURL: "https://vesch-cleaning-app.firebaseio.com"
-});
-
-const db  = admin.database();
-
-module.exports.db = db;
-// const ref = db.ref("clients");
-// const newCLient = ref.push({
-//   phone_number: "+380938285592",
-//   promo_code: 23423423
-// });
-// console.log(newCLient.key);
-
-
-// const graceHop = ref.child("gracehop");
-// graceHop.update({
-// 	nick_name: 'supper_power'
-// })
-
 // get emailsend routes
 const emailsend = require('./server/routes/emailsend');
-const smssend = require('./server/routes/smssend');
-const app = express();
+const smssend 	= require('./server/routes/smssend');
+const app 		= express();
 
 //npm helmet for data transfer security
 app.use(helmet());

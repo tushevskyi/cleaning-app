@@ -4,9 +4,14 @@ const express    		= require('express');
 const router     		= express.Router();
 const SmsService 		= require('node-smsukraine');
 const http       	    = require('http');
-const server 			= require('../../server');
 const rndmModule 	    = require('../services/promoCode');
 const phoneNumberModule = require('../services/phoneNumber');
+const dbModule 			= require('../database/db');
+const emailSendModule	= require('./emailsend');
+
+const clientInfoRef 	= dbModule.db.ref('clients');
+// const clientsIp 		= dbModule.db.ref('clients_ip');
+
 
 const sms = new SmsService({
 	login: '+380938285592', 
@@ -14,50 +19,59 @@ const sms = new SmsService({
 	name:  'Vesch'
 });
 
-const phoneNumberRef = server.db.ref('phone_numbers');
+const response = (res, promo_code, error, error_type = 'no error') => {
+	const resObj = { 
+		successStatus: res, 
+		promoCode: promo_code,
+		phoneNumberErrorStatus: error,
+		phoneNumberError: error_type
+	};
 
-const sendSMS = async (req_phone_number) => {
-	const phoneNumber = await phoneNumberModule.checkProneNumber(req_phone_number);
-
-	if (phoneNumber !== "") {
-		const promoCode = await rndmModule.checkCode();
-		console.log('-----------');
-		console.log('code to send ' + promoCode);
-		console.log(`ready to send ${promoCode} on: ` + phoneNumber);
-		console.log('-----------');
-	}
-
-	// const data = {
-	// 	'to': `${req_phone_number}`, 
-	// 	'text': `Ваш акционный код - ${promocode}`
-	// };
-
-	// const response = res => {
-	// 	const resObj = {successStatus: res, promoCode: promoCode};
-	// 	console.log(resObj);
-	// 	return resObj;
-	// };
-
-	// res.send(response(true));
-
-	// sms.send(data, (err, sms_data) => {
-	// 	if(err) { 
-	// 		console.log(JSON.stringify(err));
-	// 		res.send(response(false));
-	// 	} else {
-	// 		console.log(JSON.stringify(sms_data));
-	// 		res.send(response(true));
-	// 	}
-	// });
-
-	// const reqIp   = req.connection.remoteAddress;
-	// console.log({reqIp});
+	console.log(resObj);
+	return resObj;
 };
 
-
 router.post('/', (req, res) => {
-	const req_phone_number  = req.body.phone_number;
-	sendSMS(req_phone_number);
+
+	const req_phone_number = req.body.phone_number;
+	// const req_ip = req.connection.remoteAddress;
+	// console.log(req_ip);
+
+	const smsSend = async () => {
+		const phone_number = await phoneNumberModule.checkPhoneNumber(req_phone_number);
+
+		if(phone_number !== "exists in db" && phone_number !== "corrupt") {
+			const promo_code = await rndmModule.checkCode();
+
+			clientInfoRef.push({
+				phoneNumber: phone_number,
+				promoCode: promo_code
+			});
+
+			// const data = {
+			// 	'to': `${phone_number}`, 
+			// 	'text': `Ваш акционный код - ${promo_code}`
+			// };
+
+			// sms.send(data, (err, sms_data) => {
+			// 	if(err) { 
+			// 		console.log(JSON.stringify(err));
+			// 		res.send(response(false, 0, true));
+			// 	} else {
+			// 		console.log(JSON.stringify(sms_data));
+			// 		res.send(response(false, 0, true, phone_number));
+			// 	}
+			// });
+
+			res.send(response(true, promo_code, false));
+
+		} else {
+			res.send(response(false, 0, true, phone_number));
+		}
+	};
+
+	smsSend();
+	
 });
 
 module.exports = router;

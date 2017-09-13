@@ -1,9 +1,10 @@
 'use strict';
 
-const express     = require('express');
-const router      = express.Router();
-const nodemailer  = require('nodemailer');
-const fs          = require('fs');
+const express        = require('express');
+const router         = express.Router();
+const nodemailer     = require('nodemailer');
+const fs             = require('fs');
+const dbModule 	     = require('../database/db');
 
 /* GET api listing. */
 router.post('/', (req, res) => {
@@ -45,8 +46,6 @@ router.post('/', (req, res) => {
 	}
 
 	sendEmail();
-
-	//req.connection.remoteAddress
 
 });
 
