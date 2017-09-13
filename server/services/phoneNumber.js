@@ -4,7 +4,6 @@ const dbModule = require('../database/db');
 const phoneNumberRef = dbModule.db.ref('phone_numbers');
 
 const checkPhoneNumber = (number) => {
-
 	const validPhoneNumber = phoneNumberValidate(number);
 
 	if (validPhoneNumber === 'corrupt') {
@@ -27,8 +26,8 @@ const checkPhoneNumber = (number) => {
 }
 
 const phoneNumberValidate = (phone_number) => {
+	const phoneNumber = phone_number.replace(/\D/g,'');
 	const mask = '380931234567';
-	const phoneNumber   = phone_number.replace(/\D/g,'');
 
 	if(phoneNumber.length !== mask.length) {
 		return 'corrupt';

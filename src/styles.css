@@ -1,1 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
+@font-face { 
+	font-family: "Arkhip";
+	src: url("assets/fonts/Arkhip_font.ttf");
+}
+
+@font-face { 
+	font-family: "Bold";
+	src: url("assets/fonts/Menlo-Bold.ttf");
+}
+
+@font-face { 
+	font-family: "BoldItal";
+	src: url("assets/fonts/Menlo-BoldItalic.ttf");
+}
+
+@font-face { 
+	font-family: "Ital";
+	src: url("assets/fonts/Menlo-Italic.ttf");
+}
+
+@font-face { 
+	font-family: "Reg";
+	src: url("assets/fonts/Menlo-Regular.ttf");
+}

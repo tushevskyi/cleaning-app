@@ -1,13 +1,48 @@
-<div class="input-holder">	
-	<div *ngIf="successStatus" class="sms-send-report">Ваш код {{promoCode}}</div>
-	<input  #inputPhone 
-			type="text" 
-			name="inputPhone" 
-			placeholder="+38(___) ___ __ __" 
-			[textMask]="{mask: mask}" 
-			class="form-control" required>
-	<button class="btn btn-success" (click)="smsSend(inputPhone.value)">Отправить код на мобильный</button>
-</div>
+<section class="promo">
+	<div class="container-fluid">
+		<div class="promo__info-title">
+			<p>
+				Чистка любой первой вещи бесплатно
+			</p>
+		</div>
 
-<!-- share promo code from sms-component to email-component -->
-<app-email-send [promoCode]="promoCode"></app-email-send>
+		<div class="promo__info">
+			<div class="row">
+				<div *ngFor="let block of info_blocks" class="info-block col-lg-4">
+					<div class="info_number">
+						<p>{{block.number}}</p>
+					</div>
+					<div class="title-term_holder">
+						<div class="info_title">
+							<p [innerHTML]="block.title"></p>
+						</div>
+						<div class="info_term">
+							<p [innerHTML]="block.term"></p>
+						</div>
+					</div>	
+				</div>
+			</div>
+		</div>
+
+		<div class="promo_service-title">
+			<p>
+				Введи номер телефона и получи промо код в SMS
+			</p>
+		</div>
+
+		<div class="input-holder">	
+			<div *ngIf="successStatus" class="sms-send-report">Ваш код {{promoCode}}</div>
+			<input  #inputPhone 
+					type="text" 
+					name="inputPhone" 
+					placeholder="+38(___) ___ __ __" 
+					[textMask]="{mask: mask}" 
+					class="form-control" required>
+			<button class="btn btn-success" (click)="smsSend(inputPhone.value)">Получить код</button>
+		</div>
+
+		<!-- share promo code from sms-component to email-component -->
+		<app-email-send [promoCode]="promoCode"></app-email-send>
+
+	</div>
+</section>

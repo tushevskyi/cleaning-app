@@ -10,13 +10,32 @@ import { SmsSendService }	          from './sms-send.service';
 
 export class SmsSendComponent implements OnInit {
 
+  info_blocks: Array<object>;
   smssend: object;
   response: object;
   promoCode: number; 
   successStatus: boolean;
   mask: any[] = ['+', '3', '8', ' ', '(', /[0-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
 
-  constructor(private service: SmsSendService) {}
+  constructor(private service: SmsSendService) {
+    this.info_blocks = [
+      {
+        number: '1.',
+        title: `Получите <br> промокод на <br> сайте`,
+        term: "Введите телефон и <br> Email, чтобы мы <br> прислали Вам код"
+      },
+      {
+        number: '2.',
+        title: "Сохраните SMS <br> или Email с <br> кодом",
+        term: "Не удаляйте код до его <br> использования"
+      },
+      {
+        number: '3.',
+        title: "Придите и <br> получите чистку <br> бесплатно",
+        term: "В любом из отделений <br> Vesch с 16 октября по <br> 30 ноября"
+      }
+    ]
+  }
 
   ngOnInit() {}
  
