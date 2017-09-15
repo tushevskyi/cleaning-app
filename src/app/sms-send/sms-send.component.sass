@@ -16,7 +16,8 @@ section.promo
 				font-size: 48px
 				color: $main-dark-blue
 
-		.promo__info		
+		.promo__info
+			margin-bottom: 150px		
 
 			.info-block
 				position: relative
@@ -57,21 +58,83 @@ section.promo
 							font-family: $Reg
 							width: 315px
 
+		.promo_service-holder					
 
-		.sendemail
-			width: 100px
-			height: 50px
-			margin: 50px auto
-			display: flex
-			justify-content: center
-			align-items: center
-			color: black
+			.promo_service-title
+				text-align: center
 
-		.input-holder
-			width: 60%
-			min-width: 250px
-			margin: 50px auto
-			text-align: center
+				p
+					font-family: $Arkhip
+					font-size: 30px
 
-		.form-control 
-			margin-bottom: 10px
+			.sms-send-respond
+				text-align: center
+
+				p
+					font-family: $Arkhip
+					font-size: 30px
+
+				span
+					font-family: $Reg
+					font-size: 20px
+					display: block
+					margin-top: -25px
+					
+
+			.input-holder
+				display: flex
+				justify-content: center
+				align-items: center
+				flex-direction: column
+
+				.sms-input
+					display: block
+					border: none
+					border-bottom: 2px solid $main-dark-blue
+					width: 45%
+					margin-top: 20px
+					margin-bottom: 45px
+					outline: none
+					text-align: center
+					font-family: $Arkhip
+					font-size: 25px
+					color: $main-dark-blue
+
+
+					&::-webkit-input-placeholder
+						font-family: $Arkhip
+						font-size: 30px
+						opacity: 0.2
+						text-align: center
+
+					&:-moz-placeholder
+						font-family: $Arkhip
+						font-size: 30px
+						opacity: 0.2
+						text-align: center
+
+				.send-sms-btn
+					width: 10%
+					min-width: 350px
+					background-color: $main-green
+					border: none
+					height: 50px
+					border-radius: 50px
+					font-family: $Reg
+					letter-spacing: 2px
+					font-weight: 100
+
+					&:focus
+						box-shadow: 0 0 0 2px rgba(46,56,70,.8)
+
+
+
+
+
+
+
+
+
+
+
+

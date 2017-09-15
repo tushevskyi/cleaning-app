@@ -1,17 +1,61 @@
-.sendemail
-	width: 100px
-	height: 50px
-	margin: 50px auto
+@import "../sass/variables";
+
+.input-holder
 	display: flex
 	justify-content: center
 	align-items: center
-	color: black
+	flex-direction: column
 
-.input-holder
-	width: 60%
-	min-width: 250px
-	margin: 50px auto
-	text-align: center
+	.email-input
+		display: block
+		border: none
+		border-bottom: 2px solid $main-dark-blue
+		width: 45%
+		margin-top: 20px
+		margin-bottom: 45px
+		outline: none
+		text-align: center
+		font-family: $Arkhip
+		font-size: 20px
+		color: white
+		background-color: transparent
 
-.form-control 
-	margin-bottom: 10px
+
+		&::-webkit-input-placeholder
+			font-family: $Reg
+			font-size: 15px
+			text-align: center
+			// color: white
+			letter-spacing: 2px
+
+		&:-moz-placeholder
+			font-family: $Reg
+			font-size: 15px
+			text-align: center
+			// color: white
+
+	.send-email-btn
+		width: 10%
+		min-width: 350px
+		background-color: $main-dark-blue
+		border: none
+		height: 50px
+		border-radius: 50px
+		font-family: $Reg
+		letter-spacing: 2px
+		font-weight: 100
+
+		&:focus
+			box-shadow: 0 0 0 2px rgba(256,256,256,.8)
+
+
+
+
+
+
+
+
+
+
+
+

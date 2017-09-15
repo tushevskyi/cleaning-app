@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { SmsSendService }	          from './sms-send.service';
 
 @Component({
@@ -51,8 +51,8 @@ export class SmsSendComponent implements OnInit {
 
 }
 
-/*todo list
-validate phone number on client and server
-save email data
-return callback with ok if smssend
-*/
+// todo list
+// validate phone number on client and server +
+// save email data 
+// return callback with ok if smssend +
+

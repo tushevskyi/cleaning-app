@@ -4,6 +4,7 @@ const express    		= require('express');
 const router     		= express.Router();
 const SmsService 		= require('node-smsukraine');
 const http       	    = require('http');
+
 const rndmModule 	    = require('../services/promoCode');
 const phoneNumberModule = require('../services/phoneNumber');
 const dbModule 			= require('../database/db');
@@ -63,6 +64,7 @@ router.post('/', (req, res) => {
 			// 	}
 			// });
 
+			//(res, promo_code, error, error_type = 'no error')
 			res.send(response(true, promo_code, false));
 
 		} else {

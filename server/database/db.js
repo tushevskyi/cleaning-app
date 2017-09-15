@@ -1,7 +1,7 @@
 'use strict';
 
 const admin                  = require('firebase-admin');
-const serviceFirebaseAccount = require('./vesch-cleaning-app-firebase-adminsdk.json');
+const serviceFirebaseAccount = require('./vesch-cleaning-app-firebase-adminsdk-zf23r-891c5c3e08.json');
 
 //initialize firebase database
 admin.initializeApp({

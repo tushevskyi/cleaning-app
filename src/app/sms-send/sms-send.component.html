@@ -23,26 +23,35 @@
 				</div>
 			</div>
 		</div>
+		<div class="promo_service-holder">
+			<div class="promo_service-title">
+				<p>
+					Введи номер телефона и получи промо код в SMS
+				</p>
+			</div>
 
-		<div class="promo_service-title">
-			<p>
-				Введи номер телефона и получи промо код в SMS
-			</p>
+			<div *ngIf="successStatus" class="sms-send-respond">
+				<p>
+					Мы отправили промокод {{promoCode}} на Ваш мобильный.
+				</p>
+				<span>
+					Хотите продублировать его на электронную почту?
+				</span>
+			</div>
+
+			<div class="input-holder">	
+				<input  #inputPhone 
+						type="text" 
+						name="inputPhone" 
+						placeholder="+38(___) ___ __ __" 
+						[textMask]="{mask: mask}" 
+						class="sms-input" required>
+				<button class="send-sms-btn btn btn-success" (click)="smsSend(inputPhone.value)">Получить код</button>
+			</div>
+
+			<!-- share promo code from sms-component to email-component -->
+			<app-email-send [promoCode]="promoCode"></app-email-send>
 		</div>
-
-		<div class="input-holder">	
-			<div *ngIf="successStatus" class="sms-send-report">Ваш код {{promoCode}}</div>
-			<input  #inputPhone 
-					type="text" 
-					name="inputPhone" 
-					placeholder="+38(___) ___ __ __" 
-					[textMask]="{mask: mask}" 
-					class="form-control" required>
-			<button class="btn btn-success" (click)="smsSend(inputPhone.value)">Получить код</button>
-		</div>
-
-		<!-- share promo code from sms-component to email-component -->
-		<app-email-send [promoCode]="promoCode"></app-email-send>
 
 	</div>
 </section>

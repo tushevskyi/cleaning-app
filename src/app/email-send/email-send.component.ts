@@ -17,6 +17,7 @@ export class EmailSendComponent implements OnInit {
   constructor(private service: EmailSendService) {}
 
   @Input() promoCode: number;
+  
 
   ngOnInit() {}
 
