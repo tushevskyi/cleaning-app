@@ -12,9 +12,10 @@ import { EmailSendComponent }  from './email-send/email-send.component';
 import { PriceModalComponent } from './price-modal/price-modal.component';
 import { HeaderComponent }     from './header/header.component';
 import { SmsSendComponent }    from './sms-send/sms-send.component';
+import { HeroFormComponent } from './hero-form/hero-form.component';
 
 @NgModule({
-  declarations: [AppComponent, PriceComponent, EmailSendComponent, PriceModalComponent, HeaderComponent, SmsSendComponent],
+  declarations: [AppComponent, PriceComponent, EmailSendComponent, PriceModalComponent, HeaderComponent, SmsSendComponent, HeroFormComponent],
   imports: [BrowserModule, HttpClientModule, NgbModule.forRoot(), TextMaskModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent]

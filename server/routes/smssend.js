@@ -41,7 +41,7 @@ router.post('/', (req, res) => {
 	const smsSend = async () => {
 		const phone_number = await phoneNumberModule.checkPhoneNumber(req_phone_number);
 
-		if(phone_number !== "exists in db" && phone_number !== "corrupt") {
+		if(phone_number !== "exists in db" && phone_number !== "400") {
 			const promo_code = await rndmModule.checkCode();
 
 			clientInfoRef.push({
