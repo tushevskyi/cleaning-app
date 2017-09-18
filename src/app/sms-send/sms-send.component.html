@@ -24,7 +24,7 @@
 			</div>
 		</div>
 		<div class="promo_service-holder">
-			<div class="promo_service-title">
+			<div class="promo_service-title" [@hideElement]="state">
 				<p>
 					Введи номер телефона и получи промо код в SMS
 				</p>
@@ -38,16 +38,26 @@
 					Хотите продублировать его на электронную почту?
 				</span>
 			</div>
-
-			<div class="input-holder">	
-				<input  #inputPhone 
-						type="text" 
-						name="inputPhone" 
-						placeholder="+38(___) ___ __ __" 
-						[textMask]="{mask: mask}" 
-						class="sms-input" required>
-				<button class="send-sms-btn btn btn-success" (click)="smsSend(inputPhone.value)">Получить код</button>
-			</div>
+			<form [formGroup]="smsSendGroup"
+				  [@hideElement]="state"
+			      (ngSubmit)="onSubmit(inputPhone.value)">
+				<div class="input-holder">	
+					<input  #inputPhone
+							formControlName="inputPhone" 
+							type="text" 
+							name="inputPhone" 
+							placeholder="+38(___) ___ __ __" 
+							[textMask]="{mask: mask}"
+							pattern="\+\d\d \([0]\d{2}\) \d{3}-\d{4}" 
+							class="sms-input" required>
+					<button class="send-sms-btn btn btn-success" 
+							type="submit" 
+							[disabled]="!smsSendGroup.valid"
+							(click)="hideElementAnimation()"> 
+							Получить код 
+					</button>
+				</div>
+			</form>
 
 			<!-- share promo code from sms-component to email-component -->
 			<app-email-send [promoCode]="promoCode"></app-email-send>
