@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { EmailSendService }  from './email-send.service'; 
+import { Output, EventEmitter }     from '@angular/core';
+import { EmailSendService }         from './email-send.service'; 
 
 @Component({
   selector: 'app-email-send',
@@ -11,12 +12,12 @@ import { EmailSendService }  from './email-send.service';
 export class EmailSendComponent implements OnInit {
 
   emailsend: any;
-  response: object;
-
+  emailSendResponse: boolean;
 
   constructor(private service: EmailSendService) {}
 
   @Input() promoCode: number;
+  @Output() emailSendResponseEvent = new EventEmitter<boolean>();
   
 
   ngOnInit() {}
@@ -24,8 +25,9 @@ export class EmailSendComponent implements OnInit {
   emailSend(clientMail): any {
     this.emailsend = this.service.emailSendRequest(clientMail, this.promoCode)
       .subscribe( data => { 
-        this.response = data;
-        console.log(this.response);
+        this.emailSendResponse = data;
+        this.emailSendResponseEvent.emit(this.emailSendResponse);
+        console.log(this.emailSendResponse);
       });
   }
 

@@ -1,8 +1,6 @@
-<!-- <div *ngIf="successStatus" class="input-holder">	 -->
 <div class="input-holder">	
 	<input #emailInput type="text" name="emailInput" placeholder="Введите Email" class="email-input">
 	<button class="send-email-btn btn btn-success" (click)="emailSend(emailInput.value)">
 		Отправить код на Email
 	</button>
-	{{response}}
 </div>

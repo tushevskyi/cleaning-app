@@ -16,8 +16,8 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
       state('active', style({
         opacity: 0
       })),
-      transition('inactive => active', animate('200ms ease-in')),
-      transition('active => inactive', animate('200ms ease-out'))
+      transition('inactive => active', animate('300ms ease-in')),
+      transition('active => inactive', animate('300ms ease-in'))
     ])
   ]
 })
@@ -27,11 +27,12 @@ export class SmsSendComponent implements OnInit {
   info_blocks: Array<object>;
   smsSendGroup: any;
   smssend: object;
-  response: object;
+  responseSmsObj: object;
   promoCode: number; 
-  successStatus: boolean;
+  successStatus: boolean = false;
   state: string = 'inactive';
   animationDoneResult: boolean = true;
+  emailSendResponse: boolean = false;
   mask: any[] = ['+', '3', '8', ' ', '(', /[0-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
 
   constructor(private service: SmsSendService) {
@@ -51,7 +52,7 @@ export class SmsSendComponent implements OnInit {
         title: "Придите и <br> получите чистку <br> бесплатно",
         term: "В любом из отделений <br> Vesch с 16 октября по <br> 30 ноября"
       }
-    ],
+    ];
 
     this.smsSendGroup = new FormGroup({
        inputPhone: new FormControl()
@@ -61,21 +62,26 @@ export class SmsSendComponent implements OnInit {
   ngOnInit() {}
 
   hideElementAnimation(): void {
-    this.state = (this.state === 'inactive' ? 'active' : 'inactive');
+    if (this.successStatus) {
+      this.state = (this.state === 'inactive' ? 'active': 'inactive');
+      setTimeout(() => {
+        this.animationDoneResult = false;
+        console.log('test');
+      },300);
+    }
   }
 
-  animationDone(e): void {
-    console.log(e);
-    this.animationDoneResult = false;
+  receiveEmailSendStatus($event) {
+    this.emailSendResponse = $event;
   }
  
   onSubmit(user_phone): void {
   	this.smssend = this.service.smsSendRequest(user_phone)
   	  .subscribe( data => { 
-        this.response = data;
+        this.responseSmsObj = data;
         this.promoCode = data.promoCode;
         this.successStatus = data.successStatus;
-        console.log(this.response);
+        console.log(this.responseSmsObj);
       });
   }
 

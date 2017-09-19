@@ -23,8 +23,18 @@
 				</div>
 			</div>
 		</div>
-		<div class="promo_service-holder">
-			<div class="promo_service-title" [@hideElement]="state">
+	</div>
+	<div class="container-fluid promo_service-wrap" [ngClass]="{'emailSendBg': successStatus}">
+		<div class="promo_final-result" *ngIf="emailSendResponse">
+			<p>
+				Спасибо! <br>
+				Мы отправили промокод Вам на Email и в SMS
+			</p>
+		</div>	
+		<div class="promo_service-holder" *ngIf="!emailSendResponse">
+			<div class="promo_service-title" 
+			     [@hideElement]="state" 
+			     *ngIf="animationDoneResult">
 				<p>
 					Введи номер телефона и получи промо код в SMS
 				</p>
@@ -40,7 +50,8 @@
 			</div>
 			<form [formGroup]="smsSendGroup"
 				  [@hideElement]="state"
-			      (ngSubmit)="onSubmit(inputPhone.value)">
+			      (ngSubmit)="onSubmit(inputPhone.value)"
+			      *ngIf="animationDoneResult">
 				<div class="input-holder">	
 					<input  #inputPhone
 							formControlName="inputPhone" 
@@ -60,7 +71,10 @@
 			</form>
 
 			<!-- share promo code from sms-component to email-component -->
-			<app-email-send [promoCode]="promoCode"></app-email-send>
+			<app-email-send *ngIf='successStatus' 
+							[promoCode]="promoCode"
+							(emailSendResponseEvent)="receiveEmailSendStatus($event)">			
+			</app-email-send>
 		</div>
 
 	</div>
