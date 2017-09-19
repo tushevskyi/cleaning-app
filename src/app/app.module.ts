@@ -12,12 +12,12 @@ import { AppComponent }            from './app.component';
 import { PriceComponent }          from './price/price.component';
 import { EmailSendComponent }      from './email-send/email-send.component';
 import { PriceModalComponent }     from './price-modal/price-modal.component';
-import { HeaderComponent }         from './header/header.component';
+import { MastheadComponent }       from './masthead/masthead.component';
 import { SmsSendComponent }        from './sms-send/sms-send.component';
 import { HeroFormComponent }       from './hero-form/hero-form.component';
 
 @NgModule({
-  declarations: [AppComponent, PriceComponent, EmailSendComponent, PriceModalComponent, HeaderComponent, SmsSendComponent, HeroFormComponent],
+  declarations: [AppComponent, PriceComponent, EmailSendComponent, PriceModalComponent, MastheadComponent, SmsSendComponent, HeroFormComponent],
   imports: [BrowserModule, HttpClientModule, NgbModule.forRoot(), TextMaskModule, FormsModule, ReactiveFormsModule, BrowserAnimationsModule],
   providers: [],
   bootstrap: [AppComponent]
