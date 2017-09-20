@@ -1,0 +1,42 @@
+<section class="technology" id="technology">
+	<div class="container-fluid">
+		<div class="technology_main-logo-holder">
+			<figure class="technology_main-logo">
+				<img [src]="technologyMainLogo.src" [alt]="technologyMainLogo.alt">
+			</figure>
+		</div>
+		<div class="title-holder">
+			<div class="section-title">
+				<p>
+					новый взгляд на вещи
+				</p>
+			</div>
+			<div class="section-subtitle">
+				<p>
+					Для нас «новый взгляд» - это не просто слова, это подход ко всему, что мы делаем!
+					В VESCH мы объединили лучшее что может быть на рынке ухода за одеждой: 
+				</p>
+			</div>
+		</div>
+		<div class="row technology-holder">
+			<div *ngFor="let technology of technologyDescriptopn" class="col-lg-4 technology-col">
+				<figure class="technology_img">
+					<img [src]="technology.img_src" [alt]="technology.img_alt">
+				</figure>
+				<figure class="technology_icon">
+					<img [src]="technology.icon_src" [alt]="technology.icon_alt">
+				</figure>
+				<div class="technology_description-holder">
+					<div class="technology_description-title">
+						<p [innerHTML]="technology.description_title"></p>
+					</div>
+					<div class="technology_description-text">
+						<p>
+							{{technology.description_text}}
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

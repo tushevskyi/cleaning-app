@@ -1,10 +1,31 @@
 @import "../sass/variables";
 
 header.masthead
+  margin-top: 122px
+  padding-bottom: 115px
   background: $main-dark-blue
+  position: relative
 
   .container-fluid
     padding: 0
+
+    .main-logo-white
+
+      img
+        width: 215px
+        margin: auto
+        position: absolute
+        left: 0 
+        bottom: 65px
+        right: 0
+
+    .round-title
+      
+      img
+        position: absolute
+        height: 370px
+        left: 35px
+        top: 50px
 
     .masthead-holder
       display: flex
@@ -13,14 +34,45 @@ header.masthead
         width: 50%
 
         figure
-
           img
             width: 100%
-            height: 100%
+            height: auto
 
       .masthead_right-col
         width: 50%
+        display: flex
+        justify-content: center
+        text-align: center
+        flex-direction: column
 
+        .right-col_title-holder
+          text-align: left
+          padding-left: 10%
+          position: relative
+
+          .main-title
+            font-family: $Arkhip
+            font-size: 52px
+            color: white
+            text-transform: none
+            font-weight: 100
+
+          figure.wave 
+            text-align: right
+            margin-right: 45px
+            margin-top: -20px
+
+            img
+              width: 42px
+
+          .main-subtitle
+            margin-top: 45px
+            font-family: $Reg
+            color: $main-green
+            font-size: 25px
+            text-transform: none
+            font-weight: 100
+            letter-spacing: 2px
 
 
 

@@ -1,16 +1,19 @@
-<section id="portfolio">
+<section id="service">
   <div class="container">
-    <h2 class="text-center">Portfolio</h2>
-    <hr class="star-primary">
+    <h2 class="text-center">что мы чистим</h2>
     <div class="row">
-      <div *ngFor="let price of prices_info"  class="col-sm-4 portfolio-item">
-        <div class="portfolio-link" [attr.href]='price.id' data-toggle="modal">
-          <div class="caption">
-            <div class="caption-content">
-              <i class="fa fa-search-plus fa-3x"></i>
-            </div>
+      <div *ngFor="let service of services_info; let i = index" 
+           (mouseenter)='hoverAnimation(i)'
+           (mouseleave)='hoverAnimation(i)'  
+           class="col-sm-4 service-item">
+        <div class="service-link" [attr.href]='service.id' data-toggle="modal">
+          <div class="img-overlay"></div>
+          <div class="img-text">
+            <p [@hoverAnimation]="service.state">
+              {{service.img_text}}
+            </p>
           </div>
-          <img class="img-fluid" [src]="price.img" alt="">
+          <img class="img-fluid" [src]="service.img" alt="">
         </div>
       </div>
     </div>
