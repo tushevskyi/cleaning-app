@@ -1,35 +1,42 @@
+@import "../app/sass/variables";
+
 // Styling for the navbar
 #mainNav {
-  font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-weight: 700;
-  text-transform: uppercase;
+  font-family: $Reg;
+  font-weight: 100;
+  font-size: 18px;
+  text-transform: none;
   border: none;
-  background: $theme-primary;
+  background: white;
+  height: 90px;
   a:focus {
     outline: none;
   }
   .navbar-brand {
-    font-size: 1.1rem;
-    color: white;
-    &.active,
-    &:active,
-    &:focus,
-    &:hover {
-      color: white;
+    margin-left: 30px;
+    margin-top: -20px;
+    position: absolute;
+
+    img {
+      height: 74px;
+      width: 223px;
     }
   }
   .navbar-nav {
     letter-spacing: 1px;
+    margin: 0 auto;
     li.nav-item {
+      padding: 0 20px;
       a.nav-link {
-        color: white;
+        color: black;
+        padding: 5px 15px;
         &:hover {
-          color: $theme-success;
+          color: $main-green;
           outline: none;
         }
         &:active,
         &:focus {
-          color: white;
+          color: black;
         }
       }
     }
@@ -63,13 +70,13 @@
     }
     .navbar-nav > li.nav-item > a.nav-link.active {
       color: white;
-      border-radius: 3px;
-      background: $theme-success;
+      border-radius: 15px;
+      background: $main-green;
       &:active,
       &:focus,
       &:hover {
         color: white;
-        background: $theme-success;
+        background: $main-green;
       }
     }
   }

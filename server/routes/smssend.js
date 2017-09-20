@@ -49,23 +49,23 @@ router.post('/', (req, res) => {
 				promoCode: promo_code
 			});
 
-			// const data = {
-			// 	'to': `${phone_number}`, 
-			// 	'text': `Ваш акционный код - ${promo_code}`
-			// };
+			const data = {
+				'to': `${phone_number}`, 
+				'text': `Ваш акционный код - ${promo_code}`
+			};
 
-			// sms.send(data, (err, sms_data) => {
-			// 	if(err) { 
-			// 		console.log(JSON.stringify(err));
-			// 		res.send(response(false, 0, true));
-			// 	} else {
-			// 		console.log(JSON.stringify(sms_data));
-			// 		res.send(response(false, 0, true, phone_number));
-			// 	}
-			// });
+			sms.send(data, (err, sms_data) => {
+				if(err) { 
+					console.log(JSON.stringify(err));
+					res.send(response(false, 0, true, err));
+				} else {
+					console.log(JSON.stringify(sms_data));
+					res.send(response(true, promo_code, false));
+				}
+			});
 
 			//(res, promo_code, error, error_type = 'no error')
-			res.send(response(true, promo_code, false));
+			// res.send(response(true, promo_code, false));
 
 		} else {
 			res.send(response(false, 0, true, phone_number));

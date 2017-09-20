@@ -2,7 +2,7 @@
 	<div class="container-fluid">
 		<div class="promo__info-title">
 			<p>
-				Чистка любой первой вещи бесплатно
+				Попробуй инновационные эко технологии первым:
 			</p>
 		</div>
 
@@ -24,11 +24,11 @@
 			</div>
 		</div>
 	</div>
-	<div class="container-fluid promo_service-wrap" [ngClass]="{'emailSendBg': successStatus}">
+	<div class="container-fluid promo_service-wrap" [ngClass]="{'emailSendBg': smsSendResponse}">
 		<div class="promo_final-result" *ngIf="emailSendResponse">
 			<p>
-				Спасибо! <br>
-				Мы отправили промокод Вам на Email и в SMS
+				Спасибо,​ ​промокод​ ​уже​ ​летит​ ​к​ ​вам! <br> 
+				Скорее​ ​обновите​ ​почту​ ​или​ ​проверьте входящие​ ​SMS!
 			</p>
 		</div>	
 		<div class="promo_service-holder" *ngIf="!emailSendResponse">
@@ -39,8 +39,7 @@
 					Введи номер телефона и получи промо код в SMS
 				</p>
 			</div>
-
-			<div *ngIf="successStatus" class="sms-send-respond">
+			<div *ngIf="smsSendResponse" class="sms-send-respond">
 				<p>
 					Мы отправили промокод {{promoCode}} на Ваш мобильный.
 				</p>
@@ -62,16 +61,14 @@
 							pattern="\+\d\d \([0]\d{2}\) \d{3}-\d{4}" 
 							class="sms-input" required>
 					<button class="send-sms-btn btn btn-success" 
-							type="submit" 
-							[disabled]="!smsSendGroup.valid"
-							(click)="hideElementAnimation()"> 
+							[disabled]="!smsSendGroup.valid">
 							Получить код 
 					</button>
 				</div>
 			</form>
 
 			<!-- share promo code from sms-component to email-component -->
-			<app-email-send *ngIf='successStatus' 
+			<app-email-send *ngIf='smsSendResponse' 
 							[promoCode]="promoCode"
 							(emailSendResponseEvent)="receiveEmailSendStatus($event)">			
 			</app-email-send>

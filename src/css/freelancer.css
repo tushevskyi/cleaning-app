@@ -96,27 +96,35 @@ section.success {
       outline: none; }
 
 #mainNav {
-  font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-weight: 700;
-  text-transform: uppercase;
+  font-family: "Reg", Helvetica, sans-serif;
+  font-weight: 100;
+  font-size: 18px;
+  text-transform: none;
   border: none;
-  background: #2C3E50; }
+  background: white;
+  height: 90px; }
   #mainNav a:focus {
     outline: none; }
   #mainNav .navbar-brand {
-    font-size: 1.1rem;
-    color: white; }
-    #mainNav .navbar-brand.active, #mainNav .navbar-brand:active, #mainNav .navbar-brand:focus, #mainNav .navbar-brand:hover {
-      color: white; }
+    margin-left: 30px;
+    margin-top: -20px;
+    position: absolute; }
+    #mainNav .navbar-brand img {
+      height: 74px;
+      width: 223px; }
   #mainNav .navbar-nav {
-    letter-spacing: 1px; }
-    #mainNav .navbar-nav li.nav-item a.nav-link {
-      color: white; }
-      #mainNav .navbar-nav li.nav-item a.nav-link:hover {
-        color: #18BC9C;
-        outline: none; }
-      #mainNav .navbar-nav li.nav-item a.nav-link:active, #mainNav .navbar-nav li.nav-item a.nav-link:focus {
-        color: white; }
+    letter-spacing: 1px;
+    margin: 0 auto; }
+    #mainNav .navbar-nav li.nav-item {
+      padding: 0 20px; }
+      #mainNav .navbar-nav li.nav-item a.nav-link {
+        color: black;
+        padding: 5px 15px; }
+        #mainNav .navbar-nav li.nav-item a.nav-link:hover {
+          color: #d0d344;
+          outline: none; }
+        #mainNav .navbar-nav li.nav-item a.nav-link:active, #mainNav .navbar-nav li.nav-item a.nav-link:focus {
+          color: black; }
   #mainNav .navbar-toggler {
     font-size: 14px;
     padding: 11px;
@@ -142,11 +150,11 @@ section.success {
       transition: all 0.3s; }
     #mainNav .navbar-nav > li.nav-item > a.nav-link.active {
       color: white;
-      border-radius: 3px;
-      background: #18BC9C; }
+      border-radius: 15px;
+      background: #d0d344; }
       #mainNav .navbar-nav > li.nav-item > a.nav-link.active:active, #mainNav .navbar-nav > li.nav-item > a.nav-link.active:focus, #mainNav .navbar-nav > li.nav-item > a.nav-link.active:hover {
         color: white;
-        background: #18BC9C; }
+        background: #d0d344; }
 
   #mainNav.navbar-shrink {
     padding-top: 10px;

@@ -1,1 +1,14 @@
-
+<section id="map">
+	<div class="map-holder">
+		<agm-map [latitude]="lat" [longitude]="lng" class="google-map" [scrollwheel]="false">
+		  <agm-marker *ngFor="let m of markers; let i = index"
+				      [latitude]="m.lat"
+				      [longitude]="m.lng"
+				      [label]="m.label"
+				      [markerDraggable]="m.draggable"
+				      (dragEnd)="markerDragEnd(m, $event)">
+		  </agm-marker>
+		</agm-map>
+	</div>
+	<div class="adress-holder"></div>
+</section>

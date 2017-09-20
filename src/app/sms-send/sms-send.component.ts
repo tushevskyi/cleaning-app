@@ -29,28 +29,29 @@ export class SmsSendComponent implements OnInit {
   smssend: object;
   responseSmsObj: object;
   promoCode: number; 
-  successStatus: boolean = false;
   state: string = 'inactive';
   animationDoneResult: boolean = true;
+  smsSendResponse: boolean;
   emailSendResponse: boolean = false;
   mask: any[] = ['+', '3', '8', ' ', '(', /[0-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
+  callback;
 
   constructor(private service: SmsSendService) {
     this.info_blocks = [
       {
         number: '1.',
-        title: `Получите <br> промокод на <br> сайте`,
-        term: "Введите телефон и <br> Email, чтобы мы <br> прислали Вам код"
+        title: "Получите​ <br> персональный <br>​промокод:",
+        term: "Введите​ ​свой​ ​номер​ <br>телефона​ ​и​ ​email​ <br>​в форме​ ​ниже."
       },
       {
         number: '2.',
-        title: "Сохраните SMS <br> или Email с <br> кодом",
-        term: "Не удаляйте код до его <br> использования"
+        title: "Проверьте​ <br> ​свои ​SMS <br>​или​ почту:",
+        term: "Промокод​ ​уже​ ​там.​ ​<br>Сохраните​ ​его​ ​до момента​ ​использования!"
       },
       {
         number: '3.',
-        title: "Придите и <br> получите чистку <br> бесплатно",
-        term: "В любом из отделений <br> Vesch с 16 октября по <br> 30 ноября"
+        title: "Сообщите​ <br> ​код <br>​администратору:",
+        term: "В любом​ ​приемном пункте <br>сети экочисток​ ​Vesch​ ​с​ ​1 по 31 ноября​ 2017​ ​года."
       }
     ];
 
@@ -61,13 +62,10 @@ export class SmsSendComponent implements OnInit {
 
   ngOnInit() {}
 
-  hideElementAnimation(): void {
-    if (this.successStatus) {
-      this.state = (this.state === 'inactive' ? 'active': 'inactive');
-      setTimeout(() => {
-        this.animationDoneResult = false;
-        console.log('test');
-      },300);
+  hideElementAnimation() {
+    if(this.smsSendResponse) {
+      this.state = (this.state === 'inactive' ? 'active' : 'inactive');
+      this.animationDoneResult = false;
     }
   }
 
@@ -80,9 +78,10 @@ export class SmsSendComponent implements OnInit {
   	  .subscribe( data => { 
         this.responseSmsObj = data;
         this.promoCode = data.promoCode;
-        this.successStatus = data.successStatus;
+        this.smsSendResponse = data.successStatus;
         console.log(this.responseSmsObj);
-      });
+        this.hideElementAnimation();
+      }); 
   }
 
 }
