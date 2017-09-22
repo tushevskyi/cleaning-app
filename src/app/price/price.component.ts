@@ -11,7 +11,7 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
         bottom: '20px'
       })),
       state('active', style({
-        bottom: '140px'
+        bottom: '50%'
       })),
       transition('inactive => active', animate('200ms ease-in')),
       transition('active => inactive', animate('200ms ease-in'))
@@ -22,8 +22,10 @@ export class PriceComponent implements OnInit {
 
   services_info: Array<{ img: string, id: string, img_text: string, state: string }>;
   makeId: any;
+  wave: string;
 
   constructor() {
+  	this.wave = '/assets/svg/vesch_wave.svg';
   	this.makeId = this.priceModalId();
   	this.services_info = [
 	  	{

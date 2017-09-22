@@ -17,30 +17,64 @@ export class MapComponent implements OnInit {
 
   ngOnInit() {}
 
-  lat: number = 51.678418;
-  lng: number = 7.809007;
+  lat: number = 46.482876;
+  lng: number = 30.735535;
+  zoom: number = 11;
+  addresses: object;
 
   constructor() {
+  	this.addresses = [
+  	  {
+  	  	title: 'ТРЦ Афина, площадь Греческая, 3/4,'
+  	  },
+  	  {
+  	  	title: 'Фитнес-центр Форма, Люстдорфская дорога,172'
+  	  },
+  	  {
+  	  	title: 'Преображенская,43'
+  	  },
+  	  {
+  	  	title: 'Ришельевская,32'
+  	  },
+  	  {
+  	  	title: 'Бочарова 44'
+  	  },
+  	  {
+  	  	title: 'Кинотеатр «Золотой Дюк», проспект Академика Глушко 11Ж'
+  	  }
+  	]
   }
 
    markers: marker[] = [
 	  {
-		  lat: 51.673858,
-		  lng: 7.815982,
-		  label: 'A',
-		  draggable: true
+		lat: 46.482876,
+		lng: 30.735535,
+		draggable: false
 	  },
 	  {
-		  lat: 51.373858,
-		  lng: 7.215982,
-		  label: 'B',
-		  draggable: false
+		lat: 46.395277,
+		lng: 30.731210,
+		draggable: false
 	  },
 	  {
-		  lat: 51.723858,
-		  lng: 7.895982,
-		  label: 'C',
-		  draggable: true
+		lat: 46.477078,
+		lng: 30.731189,
+		draggable: false
+	  },
+	  {
+	  	lat: 46.477544,
+		lng: 30.739430,
+		draggable: false
+	  },
+	  {
+	  	lat: 46.583864,
+		lng: 30.808094,
+		draggable: false
+	  },
+	  {
+	  	lat: 46.398737,
+		lng: 30.725253,
+		draggable: false
 	  }
   ]
 }

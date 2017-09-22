@@ -1,4 +1,6 @@
 @import "../sass/variables"
+@import "../sass/mixins"
+
 
 // Styling for the service section
 #service
@@ -50,6 +52,14 @@
           margin: auto  
           color: black
           pointer-events: none
+
+          @include tablet
+            font-size: 20px
+
+          @include mobile
+            font-size: 19px  
+
+            
   
 
 @media(min-width:767px)

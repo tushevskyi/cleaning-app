@@ -1,6 +1,10 @@
 <section id="map">
 	<div class="map-holder">
-		<agm-map [latitude]="lat" [longitude]="lng" class="google-map" [scrollwheel]="false">
+		<agm-map [latitude]="lat" 
+				 [longitude]="lng" 
+				 class="google-map" 
+				 [scrollwheel]="false"
+				 [zoom]="zoom">
 		  <agm-marker *ngFor="let m of markers; let i = index"
 				      [latitude]="m.lat"
 				      [longitude]="m.lng"
@@ -10,5 +14,15 @@
 		  </agm-marker>
 		</agm-map>
 	</div>
-	<div class="adress-holder"></div>
+	<div class="address-holder">
+		<div class="temporary-title">
+			<p>
+				Совсем скоро​ ​VESCH​ ​ по​ ​ адресу:
+			</p>
+		</div>	
+		<div class="address-list">
+			<p *ngFor='let address of addresses' 
+			   [innerHTML]="address.title"></p>
+		</div>
+	</div>
 </section>
