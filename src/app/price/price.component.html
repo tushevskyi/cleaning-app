@@ -8,7 +8,7 @@
            class="col-sm-12 col-md-4 service-item">
         <div class="service-link" [attr.href]='service.id' data-toggle="modal">
           <div class="img-overlay"></div>
-          <figure class="img-text_wave">
+          <figure class="img-text_wave" [@hoverAnimationWave]="service.state">
             <img [src]="wave">
           </figure>
           <div class="img-text">
