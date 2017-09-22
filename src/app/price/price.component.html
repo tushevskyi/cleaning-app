@@ -7,12 +7,12 @@
            (mouseleave)='hoverAnimation(i)'  
            class="col-sm-12 col-md-4 service-item">
         <div class="service-link" [attr.href]='service.id' data-toggle="modal">
-          <div class="img-overlay"></div>
-          <figure class="img-text_wave" [@hoverAnimationWave]="service.state">
+          <div class="img-overlay" [@hoverImgOverlay]="service.state"></div>
+          <figure class="img-text_wave" [@hoverWave]="service.state">
             <img [src]="wave">
           </figure>
           <div class="img-text">
-            <p [@hoverAnimation]="service.state">
+            <p [@hoverImgText]="service.state">
               {{service.img_text}}
             </p>
           </div>

@@ -6,7 +6,7 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
   templateUrl: './price.component.html',
   styleUrls: ['./price.component.sass'],
   animations: [
-    trigger('hoverAnimation', [
+    trigger('hoverImgText', [
       state('inactive', style({
         bottom: '20px'
       })),
@@ -16,12 +16,22 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
       transition('inactive => active', animate('200ms ease-in')),
       transition('active => inactive', animate('200ms ease-in'))
     ]),
-    trigger('hoverAnimationWave', [
+    trigger('hoverWave', [
       state('inactive', style({
         opacity: '0'
       })),
       state('active', style({
         opacity: '1'
+      })),
+      transition('inactive => active', animate('250ms ease')),
+      transition('active => inactive', animate('250ms ease'))
+    ]),
+    trigger('hoverImgOverlay', [
+      state('inactive', style({
+        opacity: '0.7'
+      })),
+      state('active', style({
+        opacity: '0'
       })),
       transition('inactive => active', animate('250ms ease')),
       transition('active => inactive', animate('250ms ease'))
