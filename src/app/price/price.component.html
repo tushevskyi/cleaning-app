@@ -5,7 +5,7 @@
       <div *ngFor="let service of services_info; let i = index" 
            (mouseenter)='hoverAnimation(i)'
            (mouseleave)='hoverAnimation(i)'  
-           class="col-sm-12 col-md-4 service-item">
+           class="col-sm-12 col-md-6 col-lg-4 service-item">
         <div class="service-link" [attr.href]='service.id' data-toggle="modal">
           <div class="img-overlay" [@hoverImgOverlay]="service.state"></div>
           <figure class="img-text_wave" [@hoverWave]="service.state">

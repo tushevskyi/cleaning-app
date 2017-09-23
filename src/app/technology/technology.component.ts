@@ -13,14 +13,14 @@ interface imgObj {
 export class TechnologyComponent implements OnInit {
   
   technologyMainLogo: imgObj;
-  technologyDescriptopn: Array<object>;
+  technologyDescription: Array<object>;
 
   constructor() { 
   	this.technologyMainLogo = {
   		alt: 'vesch technology main logo',
   		src: '../assets/svg/vesch_full_white.svg'
   	};
-  	this.technologyDescriptopn = [
+  	this.technologyDescription = [
   		{
   			img_src: '../assets/img/technology/1.png',
   			img_alt: 'vesch technology image',

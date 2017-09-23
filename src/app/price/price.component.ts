@@ -89,14 +89,14 @@ export class PriceComponent implements OnInit {
 
   ngOnInit() {}
 
-  priceModalId() {
+  priceModalId(): any {
     let i = 1;
     return function() {
     	return i++;
     }  
   }
 
-  hoverAnimation(i) {
+  hoverAnimation(i): void {
   	this.services_info[i].state = (this.services_info[i].state === 'inactive' ? 'active' : 'inactive');
   }
 
