@@ -1,4 +1,5 @@
-@import "../sass/variables";
+@import "../sass/variables"
+@import "../sass/mixins"
 
 .input-holder
 	display: flex
@@ -19,6 +20,11 @@
 		font-size: 25px
 		color: white
 		background-color: transparent
+
+		@include mobile
+			width: 100%
+			font-size: 18px
+			margin-top: 30px
 
 
 		&::-webkit-input-placeholder

@@ -1,13 +1,33 @@
 @import "../sass/variables";
+@import "../sass/mixins"
 
 section.promo
-	padding-top: 100px
+	padding-top: 50px
 
 	.container-fluid
 		padding: 0 50px
 
+		@include mobile
+			padding: 0 15px
+
+		.promo__info-title
+			margin-bottom: 60px
+			text-align: center			
+			
+			p
+				font-family: $Arkhip
+				font-size: 48px
+				color: $main-dark-blue
+
+				@include tablet
+					font-size: 38px
+
+				@include mobile
+					font-size: 30px
+					line-height: 25px
+
 		.promo__text
-			margin-bottom: 100px
+			margin-bottom: 150px
 
 			p
 				width: 70%
@@ -15,28 +35,34 @@ section.promo
 				font-size: 30px
 				margin: 0 auto
 
-		.promo__info-title
-			margin-bottom: 170px
-			text-align: center
-			
-			p
-				font-family: $Arkhip
-				font-size: 48px
-				color: $main-dark-blue
+				@include tablet
+					font-size: 25px
+
+				@include mobile
+					font-size: 18px
+					width: 100%
+	
 
 		.promo__info
-			margin-bottom: 120px		
+			margin-bottom: 70px
+
+			@include mobile
+				margin-bottom: 20px		
 
 			.info-block
 				position: relative
 				display: flex
 				justify-content: center
 
+				@include mobile
+					margin-bottom: 20px
+
 				.info_number
 					position: absolute
 					z-index: 1
 					top: -115px
 					left: 15%
+					opacity: 0.3
 
 					p
 						font-size: 200px
@@ -51,11 +77,13 @@ section.promo
 						z-index: 2	
 						line-height: 29px
 
-
 						p
 							font-family: $Arkhip
 							font-size: 30px
 							color: $main-dark-blue
+
+							@include mobile
+								font-size: 25px
 
 
 					.info_term
@@ -67,12 +95,18 @@ section.promo
 							width: 315px
 							font-size: 20px
 
+							@include mobile
+								font-size: 18px
+
 	.promo_service-wrap
 		padding: 0
 		height: 398px
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
+
+		@include mobile
+			height: 300px
 
 		&.emailSendBg
 			background-color: $main-green
@@ -94,6 +128,9 @@ section.promo
 					font-family: $Arkhip
 					font-size: 30px
 
+					@include mobile
+						font-size: 20px
+
 			.sms-send-respond
 				text-align: center
 
@@ -101,11 +138,18 @@ section.promo
 					font-family: $Arkhip
 					font-size: 30px
 
+					@include mobile
+						font-size: 20px
+
 				span
 					font-family: $Reg
 					font-size: 20px
 					display: block
 					margin-top: -25px
+
+					@include mobile
+						font-size: 18px
+						margin-top: -15px
 					
 
 			.input-holder
@@ -127,18 +171,28 @@ section.promo
 					font-size: 25px
 					color: $main-dark-blue
 
+					@include mobile
+						width: 100%
+						font-size: 20px
+
 
 					&::-webkit-input-placeholder
 						font-family: $Arkhip
 						font-size: 30px
-						opacity: 0.2
+						opacity: 0.6
 						text-align: center
+
+						@include mobile
+							font-size: 20px
 
 					&:-moz-placeholder
 						font-family: $Arkhip
 						font-size: 30px
-						opacity: 0.2
+						opacity: 0.6
 						text-align: center
+
+						@include mobile
+							font-size: 20px
 
 				.send-sms-btn
 					width: 10%
@@ -147,9 +201,23 @@ section.promo
 					border: none
 					height: 50px
 					border-radius: 50px
-					font-family: $Reg
-					letter-spacing: 2px
-					font-weight: 100
+					display: flex
+					justify-content: center
+					align-items: center
+
+					&.error
+						background-color: rgb(179, 18, 15)
+
+					p.btn-no-error
+						font-family: $Reg
+						letter-spacing: 2px
+						font-weight: 100
+						margin: 0
+
+					p.btn-error	
+						font-family: $Reg
+						font-size: 16px
+						margin: 0
 
 					&:focus
 						box-shadow: 0 0 0 2px rgba(46,56,70,.8)

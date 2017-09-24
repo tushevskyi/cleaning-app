@@ -1,6 +1,7 @@
-@import "../sass/variables";
+@import "../sass/variables"
+@import "../sass/mixins"
 
-header.masthead
+header.banner
   margin-top: 100px
   padding-bottom: 115px
   background: $main-dark-blue
@@ -19,7 +20,18 @@ header.masthead
         bottom: 65px
         right: 0
 
+        @include tablet
+          width: 170px
+          bottom: 30px
+
+        @include mobile
+          width: 90px 
+          bottom: 15px 
+
     .round-title
+
+      @include mobile
+        display: none
       
       img
         position: absolute
@@ -27,28 +39,50 @@ header.masthead
         left: 35px
         top: 50px
 
-    .masthead-holder
+        @include tablet
+          height: 250px
+          top: 30px
+
+        @include mobile
+          height: 200px  
+          top: 10px
+
+    .banner-holder
       display: flex
 
-      .masthead_left-col
+      @include mobile
+        flex-direction: column
+
+      .banner_left-col
         width: 50%
 
+        @include mobile
+          display: none
+
         figure
+
           img
             width: 100%
             height: auto
 
-      .masthead_right-col
+      .banner_right-col
         width: 50%
         display: flex
         justify-content: center
         text-align: center
         flex-direction: column
 
+        @include mobile
+          margin-top: 50px
+          width: 100%
+
         .right-col_title-holder
           text-align: left
           padding-left: 10%
           position: relative
+
+          @include mobile
+            padding-left: 0
 
           .main-title
             font-family: $Arkhip
@@ -56,6 +90,13 @@ header.masthead
             color: white
             text-transform: none
             font-weight: 100
+
+            @include tablet
+              font-size: 45px
+
+            @include mobile
+              font-size: 35px 
+              text-align: center
 
           figure.wave 
             text-align: right
@@ -74,11 +115,14 @@ header.masthead
             font-weight: 100
             letter-spacing: 2px
 
+            @include mobile
+              text-align: center
+
 
 
 
 @media(min-width:768px)
-  header.masthead
+  header.banner
     
     .intro-text
       .name

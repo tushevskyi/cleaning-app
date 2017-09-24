@@ -6,11 +6,11 @@ interface imgObj {
 }
 
 @Component({
-  selector: 'app-masthead',
-  templateUrl: './masthead.component.html',
-  styleUrls: ['./masthead.component.sass']
+  selector: 'app-banner',
+  templateUrl: './banner.component.html',
+  styleUrls: ['./banner.component.sass']
 })
-export class MastheadComponent implements OnInit {
+export class BannerComponent implements OnInit {
 
   flagSvg: imgObj;
   waveSvg: imgObj;

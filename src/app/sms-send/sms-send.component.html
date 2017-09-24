@@ -1,14 +1,14 @@
 <section class="promo" id="promo">
 	<div class="container-fluid">
+		<div class="promo__info-title">
+			<p>
+				Попробуй инновационные эко технологии первым
+			</p>
+		</div>
 		<div class="promo__text">
 			<p>
 			 Добро пожаловать на официальную страничку VESCH – сети экочисток одежды нового поколения. Совсем скоро мы запустим первую эко – фабрику по чистке одежды в г. Одессе. Только у посетителей нашей странички есть уникальная возможность почистить первую вещь абсолютно бесплатно. Заказать эко чистку проще простого:
 			</p> 
-		</div>
-		<div class="promo__info-title">
-			<p>
-				Попробуй инновационные эко технологии первым:
-			</p>
 		</div>
 		<div class="promo__info">
 			<div class="row">
@@ -57,7 +57,9 @@
 			      *ngIf="animationDoneResult">
 				<div class="input-holder">	
 					<input  #inputPhone
+							[(ngModel)]="inputValue"
 							formControlName="inputPhone" 
+							(focus)="inputFocus()"
 							type="text" 
 							name="inputPhone" 
 							placeholder="+38(___) ___ __ __" 
@@ -65,8 +67,16 @@
 							pattern="\+\d\d \([0]\d{2}\) \d{3}-\d{4}" 
 							class="sms-input" required>
 					<button class="send-sms-btn btn btn-success" 
+							[ngClass]="{'error': phoneNumberErrorStatus}"
 							[disabled]="!smsSendGroup.valid">
-							Получить код 
+							<p class="btn-no-error" 
+							   *ngIf='!phoneNumberErrorStatus'>
+							   Получить код
+							</p>
+							<p class="btn-error" 
+							   *ngIf='phoneNumberErrorStatus'>
+							   На номер уже отправлялось SMS
+							</p>
 					</button>
 				</div>
 			</form>

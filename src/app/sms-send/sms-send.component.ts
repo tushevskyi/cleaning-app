@@ -2,6 +2,7 @@ import { Component, OnInit }                          from '@angular/core';
 import { SmsSendService }	                            from './sms-send.service';
 import { FormControl, FormGroup }                     from '@angular/forms';
 import { trigger, state, style, animate, transition } from '@angular/animations';
+import { NgClass }                                    from '@angular/common';
 
 @Component({
   selector: 'app-sms-send',
@@ -32,9 +33,10 @@ export class SmsSendComponent implements OnInit {
   state: string = 'inactive';
   animationDoneResult: boolean = true;
   smsSendResponse: boolean;
+  phoneNumberErrorStatus: boolean = false;
   emailSendResponse: boolean = false;
+  inputValue: string;
   mask: any[] = ['+', '3', '8', ' ', '(', /[0-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
-  callback;
 
   constructor(private service: SmsSendService) {
     this.info_blocks = [
@@ -62,15 +64,27 @@ export class SmsSendComponent implements OnInit {
 
   ngOnInit() {}
 
-  hideElementAnimation() {
+  inputFocus(): void {
+    if(this.phoneNumberErrorStatus) {
+      this.phoneNumberErrorStatus = false;
+    }
+  }
+
+  hideElementAnimation(): void {
     if(this.smsSendResponse) {
       this.state = (this.state === 'inactive' ? 'active' : 'inactive');
       this.animationDoneResult = false;
     }
   }
 
-  receiveEmailSendStatus($event) {
+  receiveEmailSendStatus($event): void {
     this.emailSendResponse = $event;
+  }
+
+  clearInputValue(): void {
+    if(this.phoneNumberErrorStatus) {
+      this.inputValue = '';
+    }
   }
  
   onSubmit(user_phone): void {
@@ -79,8 +93,10 @@ export class SmsSendComponent implements OnInit {
         this.responseSmsObj = data;
         this.promoCode = data.promoCode;
         this.smsSendResponse = data.successStatus;
+        this.phoneNumberErrorStatus = data.phoneNumberErrorStatus;
         console.log(this.responseSmsObj);
         this.hideElementAnimation();
+        this.clearInputValue();
       }); 
   }
 

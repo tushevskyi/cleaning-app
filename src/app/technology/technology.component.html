@@ -11,7 +11,7 @@
 					новый взгляд на вещи
 				</p>
 			</div>
-			<div class="section-subtitle">
+			<div class="section-subtitle" (scroll)="onScroll($event)">
 				<p>
 					Для нас «новый взгляд» - это не просто слова, это подход ко всему, что мы делаем!
 					В VESCH мы объединили лучшее что может быть на рынке ухода за одеждой: 
@@ -24,7 +24,7 @@
 					<img [src]="technology.img_src" [alt]="technology.img_alt">
 				</figure>
 				<figure class="technology_icon">
-					<img [src]="technology.icon_src" [alt]="technology.icon_alt">
+					<img [src]="technology.icon_src" [alt]="technology.icon_alt" class="start">
 				</figure>
 				<div class="technology_description-holder">
 					<div class="technology_description-title">

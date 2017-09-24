@@ -11,8 +11,6 @@ const dbModule 			= require('../database/db');
 const emailSendModule	= require('./emailsend');
 
 const clientInfoRef 	= dbModule.db.ref('clients');
-// const clientsIp 		= dbModule.db.ref('clients_ip');
-
 
 const sms = new SmsService({
 	login: '+380938285592', 
@@ -44,29 +42,31 @@ router.post('/', (req, res) => {
 		if(phone_number !== "exists in db" && phone_number !== "400") {
 			const promo_code = await rndmModule.checkCode();
 
-			clientInfoRef.push({
+			const newClientRef = clientInfoRef.push({
 				phoneNumber: phone_number,
 				promoCode: promo_code
 			});
 
-			const data = {
-				'to': `${phone_number}`, 
-				'text': `Ваш акционный код - ${promo_code}`
-			};
+			const newClientId = newClientRef.key;
+			emailSendModule.getClientId(newClientId);
 
-			sms.send(data, (err, sms_data) => {
-				if(err) { 
-					console.log(JSON.stringify(err));
-					res.send(response(false, 0, true, err));
-				} else {
-					console.log(JSON.stringify(sms_data));
-					res.send(response(true, promo_code, false));
-				}
-			});
+			// const data = {
+			// 	'to': `${phone_number}`, 
+			// 	'text': `Ваш акционный код - ${promo_code}`
+			// };
+
+			// sms.send(data, (err, sms_data) => {
+			// 	if(err) { 
+			// 		console.log(JSON.stringify(err));
+			// 		res.send(response(false, 0, true, err));
+			// 	} else {
+			// 		console.log(JSON.stringify(sms_data));
+			// 		res.send(response(true, promo_code, false));
+			// 	}
+			// });
 
 			//(res, promo_code, error, error_type = 'no error')
-			// res.send(response(true, promo_code, false));
-
+			res.send(response(true, promo_code, false));
 		} else {
 			res.send(response(false, 0, true, phone_number));
 		}

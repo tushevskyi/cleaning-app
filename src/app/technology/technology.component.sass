@@ -1,8 +1,10 @@
-@import "../sass/variables";
+@import "../sass/variables"
+@import "../sass/mixins"
 
 section.technology
 	background-color: $main-dark-blue
 	padding-top: 0
+	padding-bottom: 50px
 
 	.technology_main-logo-holder
 		display: flex
@@ -15,6 +17,12 @@ section.technology
 			img
 				width: 570px
 
+				@include tablet
+					width: 470px
+
+				@include mobile	
+					width: 270px
+
 	.title-holder			
 		display: flex
 		justify-content: center
@@ -23,34 +31,73 @@ section.technology
 		text-align: center
 		margin-bottom: 50px
 
+		@include mobile
+			margin-bottom: 20px
+
 		.section-title
 			margin: 40px 0
+
+			@include mobile
+				margin: 20px 0
 
 			p
 				font-family: $Arkhip
 				font-size: 48px
 				color: white
+				margin-bottom: 0
+
+				@include tablet
+					font-size: 43px
+
+				@include mobile
+					font-size: 25px	
 
 		.section-subtitle
 			width: 80%
 
+			@include mobile
+				width: 90%
+				text-align: justify
+
 			p
 				font-family: $Reg
 				font-size: 30px
-				color: white	
+				color: white
+
+				@include tablet
+					font-size: 26px
+
+				@include mobile
+					font-size: 18px		
 
 	.technology-holder
 
 		.technology-col
 			padding-left: 7%
 			position: relative
-			padding-top: 250px
+			padding-top: 220px
+
+			@include tablet
+				padding-top: 20px
+				padding-left: 15px
+				width: 80%
+				margin: 0 auto
+
+			@include mobile
+				padding-top: 20px
+				padding-left: auto
 
 			.technology_img
 				position: absolute
 				z-index: 1
 				top: 0
 				margin-bottom: -35px
+
+				@include tablet
+					display: none
+
+				@include mobile
+					display: none	
 
 				img
 					max-width: 100%
@@ -67,8 +114,19 @@ section.technology
 				margin-left: -15%
 				position: relative
 
+				@include tablet
+					margin-left: 0
+
+				@include mobile
+					margin-left: 0
+					height: 105px
+					width: 105px
+
 				img
 					height: 142px
+
+					@include mobile
+						height: 102px
 
 			.technology_description-holder
 
@@ -78,9 +136,17 @@ section.technology
 						font-family: $Arkhip
 						font-size: 30px
 						color: white
-						height: 140px
+						height: 160px
 						position: relative
 						z-index: 3
+
+						@include tablet
+							height: 125px
+							font-size: 26px
+
+						@include mobile
+							height: auto	
+							font-size: 24px
 
 				.technology_description-text
 
@@ -88,3 +154,6 @@ section.technology
 						font-family: $Reg
 						font-size: 20px
 						color: white
+
+						@include mobile
+							font-size: 18px
