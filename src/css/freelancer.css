@@ -102,65 +102,53 @@ section.success {
   text-transform: none;
   border: none;
   background: white;
-  height: 90px; }
+  padding-top: 25px;
+  padding-bottom: 25px; }
   #mainNav a:focus {
     outline: none; }
-  #mainNav .navbar-brand {
+  #mainNav .navbar-brand img {
+    height: 74px;
+    width: 223px;
     margin-left: 30px;
-    margin-top: -20px;
-    position: absolute; }
-    #mainNav .navbar-brand img {
-      height: 74px;
-      width: 223px; }
-  #mainNav .navbar-nav {
-    letter-spacing: 1px;
-    margin: 0 auto; }
-    #mainNav .navbar-nav li.nav-item {
-      padding: 0 20px; }
-      #mainNav .navbar-nav li.nav-item a.nav-link {
-        color: black;
-        padding: 5px 15px; }
-        #mainNav .navbar-nav li.nav-item a.nav-link:hover {
-          color: #d0d344;
-          outline: none; }
-        #mainNav .navbar-nav li.nav-item a.nav-link:active, #mainNav .navbar-nav li.nav-item a.nav-link:focus {
-          color: black; }
+    margin-top: -40px; }
+  #mainNav .navbar-collapse {
+    justify-content: flex-end;
+    transition: margin-top 0.1s ease; }
+    #mainNav .navbar-collapse.show {
+      margin-top: 30px; }
+    #mainNav .navbar-collapse .navbar-nav {
+      letter-spacing: 1px; }
+      #mainNav .navbar-collapse .navbar-nav li.nav-item {
+        padding: 0 20px; }
+        @media screen and (min-width: 859px) and (max-width: 1199px) {
+          #mainNav .navbar-collapse .navbar-nav li.nav-item {
+            padding: 0 5px; } }
+        #mainNav .navbar-collapse .navbar-nav li.nav-item a.nav-link {
+          color: black;
+          padding: 5px 15px; }
+          #mainNav .navbar-collapse .navbar-nav li.nav-item a.nav-link:hover {
+            color: #d0d344;
+            outline: none; }
+          #mainNav .navbar-collapse .navbar-nav li.nav-item a.nav-link:active, #mainNav .navbar-collapse .navbar-nav li.nav-item a.nav-link:focus {
+            color: black; }
   #mainNav .navbar-toggler {
     font-size: 14px;
     padding: 11px;
     text-transform: uppercase;
-    color: white;
-    border-color: white; }
+    color: black;
+    border-color: black;
+    outline: none; }
     #mainNav .navbar-toggler:focus, #mainNav .navbar-toggler:hover {
-      color: white;
-      border-color: #18BC9C;
-      background-color: #18BC9C; }
+      color: black; }
 
 @media (min-width: 992px) {
-  #mainNav {
-    padding-top: 25px;
-    padding-bottom: 25px;
-    -webkit-transition: padding-top 0.3s, padding-bottom 0.3s;
-    -moz-transition: padding-top 0.3s, padding-bottom 0.3s;
-    transition: padding-top 0.3s, padding-bottom 0.3s; }
-    #mainNav .navbar-brand {
-      font-size: 2em;
-      -webkit-transition: all 0.3s;
-      -moz-transition: all 0.3s;
-      transition: all 0.3s; }
-    #mainNav .navbar-nav > li.nav-item > a.nav-link.active {
+  #mainNav .navbar-nav > li.nav-item > a.nav-link.active {
+    color: white;
+    border-radius: 15px;
+    background: #d0d344; }
+    #mainNav .navbar-nav > li.nav-item > a.nav-link.active:active, #mainNav .navbar-nav > li.nav-item > a.nav-link.active:focus, #mainNav .navbar-nav > li.nav-item > a.nav-link.active:hover {
       color: white;
-      border-radius: 15px;
-      background: #d0d344; }
-      #mainNav .navbar-nav > li.nav-item > a.nav-link.active:active, #mainNav .navbar-nav > li.nav-item > a.nav-link.active:focus, #mainNav .navbar-nav > li.nav-item > a.nav-link.active:hover {
-        color: white;
-        background: #d0d344; }
-
-  #mainNav.navbar-shrink {
-    padding-top: 10px;
-    padding-bottom: 10px; }
-    #mainNav.navbar-shrink .navbar-brand {
-      font-size: 1.5em; } }
+      background: #d0d344; } }
 .btn-outline {
   font-size: 20px;
   margin-top: 15px;

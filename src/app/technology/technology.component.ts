@@ -40,9 +40,9 @@ export class TechnologyComponent implements OnInit {
   			icon_alt: 'vesch technology icon',
   			description_title: 'Деликатная чистка, лучшая забота о ваших вещах',
   			description_text: `​Мы используем новейшее оборудование последнего поколения 
-  			что позволяет нам использовать инновационные экотехнологии сухой чистки Intense 
-  			и аквачистки Electrolux Lagoon, главной особенностью которых является деликатный 
-  			подход​ ​к​ ​тканям, отсутствие​ ​ усадки​, сохранение​ ​формы​ ​и цвета ваших вещей`
+        что позволяет нам использовать инновационные экотехнологии сухой чистки Intense 
+        и аквачистки Electrolux Lagoon, главной особенностью которых является деликатный подход​
+        к​ ​ тканям, ​ ​ отсутствие​ ​ усадки​, сохранение​ ​ формы​ ​ и цвета ваших вещей.`
   		},
   		{
   			img_src: '../assets/img/technology/2.png',
@@ -50,8 +50,8 @@ export class TechnologyComponent implements OnInit {
   			icon_src: '../assets/svg/2.svg',
   			icon_alt: 'vesch technology icon',
   			description_title: 'Только <br> эко-безопасные технологии',
-  			description_text: `Все наши средства по уходу за вещами абсолютно экологичны,
-  			гипоаллергенны и безопасны для вас, ваших близких и окружающей среды​`	
+  			description_text: `Все наши средства по уходу за вещами абсолютно экологичны,  
+        гипоаллергенны и безопасны для вас, ваших близких и окружающей среды​.`	
   		},
   		{
   			img_src: '../assets/img/technology/3.png',
@@ -59,8 +59,8 @@ export class TechnologyComponent implements OnInit {
   			icon_src: '../assets/svg/3.svg',
   			icon_alt: 'vesch technology icon',
   			description_title: 'Доступное <br> качество',
-  			description_text: `​Наилучшее качество деликатной и безопасной для здоровья 
-  			экочистки по цене обычной химчистки`
+  			description_text: `​Наилучшее качество деликатной и безопасной 
+        для здоровья экочистки по цене обычной химчистки.`
   		}
   	]
   }

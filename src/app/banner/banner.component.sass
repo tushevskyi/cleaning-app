@@ -1,5 +1,6 @@
 @import "../sass/variables"
 @import "../sass/mixins"
+@import "../sass/call-animation"
 
 header.banner
   margin-top: 100px
@@ -84,6 +85,28 @@ header.banner
           @include mobile
             padding-left: 0
 
+          .phone-number
+            color: white
+            font-size: 50px
+            font-family: $Reg
+            margin-bottom: 20px
+            cursor: default
+
+            @include tablet
+              font-size: 43px
+
+            @include mobile
+              display: none
+
+          
+          .call-container
+            display: none
+
+            @include mobile
+              display: block  
+
+
+
           .main-title
             font-family: $Arkhip
             font-size: 52px
@@ -97,6 +120,7 @@ header.banner
             @include mobile
               font-size: 35px 
               text-align: center
+              margin-bottom: 130px
 
           figure.wave 
             text-align: right
@@ -117,7 +141,7 @@ header.banner
 
             @include mobile
               text-align: center
-
+  
 
 
 
