@@ -3,6 +3,9 @@ import { BrowserModule }           from '@angular/platform-browser';
 import { NgModule } 		       from '@angular/core';
 import { CUSTOM_ELEMENTS_SCHEMA }  from '@angular/core';
 import { HttpClientModule }        from '@angular/common/http';
+import { HttpClient} 			   from '@angular/common/http';
+import { TranslateLoader } 		   from '@ngx-translate/core';
+import { TranslateHttpLoader }     from '@ngx-translate/http-loader';
 import { FormsModule } 		       from '@angular/forms';
 import { ReactiveFormsModule }     from '@angular/forms';
 import { TextMaskModule } 	   	   from 'angular2-text-mask';
@@ -22,12 +25,25 @@ import { TechnologyComponent } 	   from './technology/technology.component';
 import { MapComponent } 		   from './map/map.component';
 import { HeaderComponent } 		   from './header/header.component';
 
+export function HttpLoaderFactory(http: HttpClient) {
+    return new TranslateHttpLoader(http);
+}
+
 @NgModule({
   declarations: [AppComponent, PriceComponent, EmailSendComponent, PriceModalComponent, BannerComponent, SmsSendComponent, 
   				HeroFormComponent, TechnologyComponent, MapComponent, HeaderComponent],
   imports:      [BrowserModule, HttpClientModule, NgbModule.forRoot(), TextMaskModule, FormsModule, ReactiveFormsModule,
-                BrowserAnimationsModule, AgmCoreModule.forRoot({ apiKey: 'AIzaSyAeOqfRLAWnO6DteamFe899g6O6_XjanKY' }),
-                TranslateModule.forRoot(), Ng2PageScrollModule],
+                BrowserAnimationsModule, Ng2PageScrollModule,
+                AgmCoreModule.forRoot({ 
+                	apiKey: 'AIzaSyAeOqfRLAWnO6DteamFe899g6O6_XjanKY' 
+                }),  
+                TranslateModule.forRoot({
+            		loader: {
+		                provide: TranslateLoader,
+		                useFactory: HttpLoaderFactory,
+		                deps: [HttpClient]
+            		}
+        		})],
   providers:    [],
   schemas:      [ CUSTOM_ELEMENTS_SCHEMA ],
   bootstrap:    [AppComponent]
