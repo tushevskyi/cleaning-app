@@ -28,8 +28,7 @@
         "vendor/jquery/jquery.min.js",
         "vendor/popper/popper.min.js",
         "vendor/bootstrap/js/bootstrap.min.js",
-        "vendor/jquery-easing/jquery.easing.min.js",
-        "js/freelancer.min.js"
+        "js/freelancer.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {
