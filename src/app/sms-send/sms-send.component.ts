@@ -42,18 +42,18 @@ export class SmsSendComponent implements OnInit {
     this.info_blocks = [
       {
         number: '1.',
-        title: "Получите​ <br> персональный <br>​промокод:",
-        term: "Введите​ ​свой​ ​номер​ <br>телефона​ ​и​ ​email​ <br>​в форме​ ​ниже."
+        title: "sms.info_title_0",
+        term: "sms.info_term_0",
       },
       {
         number: '2.',
-        title: "Проверьте​ <br> ​свои ​SMS <br>​или​ почту:",
-        term: "Промокод​ ​уже​ ​там.​ ​<br>Сохраните​ ​его​ ​до момента​ ​использования!"
+        title: "sms.info_title_1",
+        term: "sms.info_term_1",
       },
       {
         number: '3.',
-        title: "Сообщите​ <br> ​код <br>​администратору:",
-        term: "В любом​ ​приемном пункте <br>сети экочисток​ ​Vesch​ ​с​ ​1 по 31 ноября​ 2017​ ​года."
+        title: "sms.info_title_2",
+        term: "sms.info_term_2",
       }
     ];
 

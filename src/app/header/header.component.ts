@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { PageScrollConfig }  from 'ng2-page-scroll';
-import { TranslateService }  from '@ngx-translate/core';
 
 @Component({
   selector: 'app-header',
@@ -10,15 +9,8 @@ import { TranslateService }  from '@ngx-translate/core';
 export class HeaderComponent implements OnInit {
 
   navigations: Array<object>;
-  param: object = {value: 'world'};	
 
-  constructor(translate: TranslateService) { 
-  	translate.setDefaultLang('rus');
-  	translate.addLangs(["rus", "ua"]);
-
-  	 const browserLang = translate.getBrowserLang();
-     translate.use(browserLang.match(/rus|ua/) ? browserLang : 'rus');
-
+  constructor() { 
   	PageScrollConfig.defaultScrollOffset = 90;
   	PageScrollConfig.defaultDuration = 1000;
   	PageScrollConfig.defaultEasingLogic = {

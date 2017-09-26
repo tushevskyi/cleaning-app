@@ -2,26 +2,26 @@
 	<div class="container-fluid">
 		<div class="promo__info-title">
 			<p>
-				Попробуй инновационные эко технологии первым
+				{{ "sms.title_0" | translate }}
 			</p>
 		</div>
 		<div class="promo__text">
 			<p>
-				Добро пожаловать на сайт VESCH – сети экочисток нового поколения. Совсем скоро мы запустим первую эко-фабрику по чистке одежды в Одессе. Только у посетителей нашего сайта есть уникальная возможность почистить первую вещь абсолютно бесплатно. Заказать экочистку проще простого:
+				{{ "sms.title_1" | translate }}
 			</p> 
 		</div>
 		<div class="promo__info">
 			<div class="row">
-				<div *ngFor="let block of info_blocks" class="info-block col-lg-4">
+				<div *ngFor="let block of info_blocks; let i = index;" class="info-block col-lg-4">
 					<div class="info_number">
 						<p>{{block.number}}</p>
 					</div>
 					<div class="title-term_holder">
 						<div class="info_title">
-							<p [innerHTML]="block.title"></p>
+							<p [innerHTML]=" block.title | translate "></p>
 						</div>
 						<div class="info_term">
-							<p [innerHTML]="block.term"></p>
+							<p [innerHTML]=" block.term | translate "></p>
 						</div>
 					</div>	
 				</div>
