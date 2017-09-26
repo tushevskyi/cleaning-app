@@ -14,7 +14,13 @@ export class EmailSendComponent implements OnInit {
   emailsend: any;
   emailSendResponse: boolean;
 
-  constructor(private service: EmailSendService) {}
+  email_input_placeholder: string;
+  send_email_btn: string;
+
+  constructor(private service: EmailSendService) {
+    this.email_input_placeholder = "email-input-placeholder";
+    this.send_email_btn = "send-email-btn";
+  }
 
   @Input() promoCode: number;
   @Output() emailSendResponseEvent = new EventEmitter<boolean>();

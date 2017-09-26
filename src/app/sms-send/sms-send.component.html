@@ -30,25 +30,22 @@
 	</div>
 	<div class="container-fluid promo_service-wrap" [ngClass]="{'emailSendBg': smsSendResponse}">
 		<div class="promo_final-result" *ngIf="emailSendResponse">
-			<p>
-				Спасибо,​ ​промокод​ ​уже​ ​летит​ ​к​ ​вам! <br> 
-				Скорее​ ​обновите​ ​почту​ ​или​ ​проверьте входящие​ ​SMS!
-			</p>
+			<p [innerHTML]=" smsSendedText | translate "></p>
 		</div>	
 		<div class="promo_service-holder" *ngIf="!emailSendResponse">
 			<div class="promo_service-title" 
 			     [@hideElement]="state" 
 			     *ngIf="animationDoneResult">
 				<p>
-					Введи номер телефона и получи промо код в SMS
+					{{ "promo_service_title" | translate }}
 				</p>
 			</div>
 			<div *ngIf="smsSendResponse" class="sms-send-respond">
-				<p>
-					Мы отправили промокод {{promoCode}} на Ваш мобильный.
-				</p>
-				<span>
-					Хотите продублировать его на электронную почту?
+				<p> {{ sms_send_respond_Text.first_part | translate }} </p>
+				<p class="promo_code">	{{ promoCode }} </p>
+				<p> {{ sms_send_respond_Text.second_part | translate }} </p>
+				<span class="send-email-propouse">
+					{{ send_email_propouse_Text | translate }}
 				</span>
 			</div>
 			<form [formGroup]="smsSendGroup"
@@ -70,12 +67,12 @@
 							[ngClass]="{'error': phoneNumberErrorStatus}"
 							[disabled]="!smsSendGroup.valid">
 							<p class="btn-no-error" 
-							   *ngIf='!phoneNumberErrorStatus'>
-							   Получить код
+							   *ngIf='!phoneNumberErrorStatus'
+							   [innerHTML]=" sms_send_btn_Text.no_error | translate ">
 							</p>
 							<p class="btn-error" 
-							   *ngIf='phoneNumberErrorStatus'>
-							   На номер уже отправлялось SMS
+							   *ngIf='phoneNumberErrorStatus'
+							   [innerHTML]=" sms_send_btn_Text.error | translate ">   	
 							</p>
 					</button>
 				</div>

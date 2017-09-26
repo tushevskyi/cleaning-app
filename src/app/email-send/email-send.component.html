@@ -1,6 +1,6 @@
 <div class="input-holder">	
-	<input #emailInput type="text" name="emailInput" placeholder="Введите Email" class="email-input">
+	<input #emailInput type="text" name="emailInput" [placeholder]=" email_input_placeholder | translate" class="email-input">
 	<button class="send-email-btn btn btn-success" (click)="emailSend(emailInput.value)">
-		Отправить код на Email
+		{{ send_email_btn | translate }}
 	</button>
 </div>

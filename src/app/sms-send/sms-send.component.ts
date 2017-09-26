@@ -37,8 +37,26 @@ export class SmsSendComponent implements OnInit {
   emailSendResponse: boolean = false;
   inputValue: string;
   mask: any[] = ['+', '3', '8', ' ', '(', /[0-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
+  
+  smsSendedText: string;
+  promo_service_title: string;
+  sms_send_btn_Text: object;
+  sms_send_respond_Text: object;
+  send_email_propouse_Text: string;
 
   constructor(private service: SmsSendService) {
+    this.send_email_propouse_Text = "send_email_propouse";
+    this.sms_send_respond_Text = {
+      first_part: "sms-send-respond.first_part",
+      second_part: "sms-send-respond.second_part",
+    },
+    this.smsSendedText = "smsSendedText";
+    this.promo_service_title = "promo_service_title";
+    this.sms_send_btn_Text = {
+      no_error: "sms_send_btn.btn-no-error",
+      error: "sms_send_btn.btn-error" 
+    },
+
     this.info_blocks = [
       {
         number: '1.',
