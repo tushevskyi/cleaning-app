@@ -8,13 +8,12 @@
 		<div class="title-holder">
 			<div class="section-title">
 				<p>
-					новый взгляд на вещи
+					{{ technologyText | translate }}
 				</p>
 			</div>
 			<div class="section-subtitle" (scroll)="onScroll($event)">
 				<p>
-					Для нас «новый взгляд» - это не просто слова, это подход ко всему, что мы делаем!
-					В VESCH мы объединили лучшее что может быть на рынке ухода за одеждой: 
+					{{ technology_subtile_Text | translate }}
 				</p>
 			</div>
 		</div>
@@ -24,15 +23,14 @@
 					<img [src]="technology.img_src" [alt]="technology.img_alt">
 				</figure>
 				<figure class="technology_icon">
-					<img [src]="technology.icon_src" [alt]="technology.icon_alt" class="start">
+					<img [src]="technology.icon_src" [alt]="technology.icon_alt">
 				</figure>
 				<div class="technology_description-holder">
 					<div class="technology_description-title">
-						<p [innerHTML]="technology.description_title"></p>
+						<p [innerHTML]=" technology.description_title | translate "></p>
 					</div>
 					<div class="technology_description-text">
-						<p>
-							{{technology.description_text}}
+						<p [innerHTML]=" technology.description_text | translate ">
 						</p>
 					</div>
 				</div>

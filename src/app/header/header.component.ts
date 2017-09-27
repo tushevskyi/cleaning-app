@@ -67,11 +67,11 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
   }
 
-  changeLang(lang: string) {
+  changeLang(lang: string): void {
     this.translate.use(lang);
   }
 
-  addActive(index) {
+  addActive(index): void {
     const ru = 0;
     const ua = 1;
     switch (index) {
