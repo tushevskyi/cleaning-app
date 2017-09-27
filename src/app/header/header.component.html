@@ -24,14 +24,18 @@
       <li class="nav-item">
         <a class="nav-link" href="#map" pageScroll>{{ 'nav.title_4' | translate }}</a>
       </li>
-      <!-- <li class="nav-item" *ngFor="let nav of navigations; let i = index;">
-        <a class="nav-link" 
-           [href]="nav.href" 
-           pageScroll
-           (click)="navClick(i)">
-           {{nav.title}}
-        </a>
-      </li> -->
+      <li class="nav-item">
+        <div class="lenguage-change__holder">
+          <div class='lenguage' 
+               [ngClass]="{ 'active': lenguage.classActive }" 
+               (click)="addActive(i); changeLang(lenguage.title)" 
+               *ngFor="let lenguage of lenguages; let i = index;">
+            <p>
+              {{ lenguage.title }}
+            </p>
+          </div>
+        </div>
+      </li>
     </ul>
   </div>
 </nav>

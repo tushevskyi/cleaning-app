@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PageScrollConfig }  from 'ng2-page-scroll';
+import { TranslateService }  from '@ngx-translate/core';
 
 @Component({
   selector: 'app-header',
@@ -9,8 +10,9 @@ import { PageScrollConfig }  from 'ng2-page-scroll';
 export class HeaderComponent implements OnInit {
 
   navigations: Array<object>;
+  lenguages: object;
 
-  constructor() { 
+  constructor(private translate: TranslateService) { 
   	PageScrollConfig.defaultScrollOffset = 90;
   	PageScrollConfig.defaultDuration = 1000;
   	PageScrollConfig.defaultEasingLogic = {
@@ -22,6 +24,21 @@ export class HeaderComponent implements OnInit {
             return c / 2 * (-Math.pow(2, -10 * --t) + 2) + b;
         }
     };
+
+    translate.addLangs(['ru', 'ua']);
+    translate.setDefaultLang('ru');
+    translate.use('ru');
+
+    this.lenguages = [
+      {
+        title: 'ru',
+        classActive: 1
+      },
+      {
+        title: 'ua',
+        classActive: 0
+      }
+    ]
 
   	this.navigations = [
   	  {
@@ -50,8 +67,24 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
   }
 
-  navClick(i) {
-  	console.log(i);
+  changeLang(lang: string) {
+    this.translate.use(lang);
+  }
+
+  addActive(index) {
+    const ru = 0;
+    const ua = 1;
+    switch (index) {
+      case ru:
+        this.lenguages[ru].classActive = 1;
+        this.lenguages[ua].classActive = 0;
+        break;
+      
+      case 1:
+        this.lenguages[ru].classActive = 0;
+        this.lenguages[ua].classActive = 1;
+        break;
+    }
   }
 
 }
