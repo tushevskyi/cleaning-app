@@ -39,7 +39,7 @@ router.post('/', (req, res) => {
 	const smsSend = async () => {
 		const phone_number = await phoneNumberModule.checkPhoneNumber(req_phone_number);
 
-		if(phone_number !== "exists in db" && phone_number !== "400") {
+		if(phone_number !== "exists in db" && phone_number !== "corrupt") {
 			const promo_code = await rndmModule.checkCode();
 
 			const newClientRef = clientInfoRef.push({
@@ -50,23 +50,23 @@ router.post('/', (req, res) => {
 			const newClientId = newClientRef.key;
 			emailSendModule.getClientId(newClientId);
 
-			// const data = {
-			// 	'to': `${phone_number}`, 
-			// 	'text': `Ваш акционный код - ${promo_code}`
-			// };
+			const data = {
+				'to': `${phone_number}`, 
+				'text': `Ваш акционный код - ${promo_code}`
+			};
 
-			// sms.send(data, (err, sms_data) => {
-			// 	if(err) { 
-			// 		console.log(JSON.stringify(err));
-			// 		res.send(response(false, 0, true, err));
-			// 	} else {
-			// 		console.log(JSON.stringify(sms_data));
-			// 		res.send(response(true, promo_code, false));
-			// 	}
-			// });
+			sms.send(data, (err, sms_data) => {
+				if(err) { 
+					console.log(JSON.stringify(err));
+					res.send(response(false, 0, true, err));
+				} else {
+					console.log(JSON.stringify(sms_data));
+					res.send(response(true, promo_code, false));
+				}
+			});
 
 			//(res, promo_code, error, error_type = 'no error')
-			res.send(response(true, promo_code, false));
+			// res.send(response(true, promo_code, false));
 		} else {
 			res.send(response(false, 0, true, phone_number));
 		}

@@ -22,28 +22,42 @@ export class MapComponent implements OnInit {
   zoom: number = 11;
   addresses: object;
 
+  block_title: string;
+  array_index: any;
+  map_legal: string;
+
   constructor() {
+    this.block_title = 'map.title';
+    this.array_index = this.arrayIndexClouser();
+    this.map_legal = 'map.legal_text';
+
+
   	this.addresses = [
   	  {
-  	  	title: 'ТРЦ Афина, площадь Греческая, 3/4,'
+  	  	title: this.array_index()
   	  },
   	  {
-  	  	title: 'Фитнес-центр Форма, Люстдорфская дорога,172'
+  	  	title: this.array_index()
   	  },
   	  {
-  	  	title: 'Преображенская,43'
+  	  	title: this.array_index()
   	  },
   	  {
-  	  	title: 'Ришельевская,32'
+  	  	title: this.array_index()
   	  },
   	  {
-  	  	title: 'Бочарова 44'
+  	  	title: this.array_index()
   	  },
   	  {
-  	  	title: 'Кинотеатр «Золотой Дюк», проспект Академика Глушко 11Ж'
+  	  	title: this.array_index()
   	  }
   	]
   }
+
+   arrayIndexClouser() {
+     let i = 0;
+     return () => `map.addresses.${i++}`
+   }
 
    markers: marker[] = [
 	  {

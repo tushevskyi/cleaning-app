@@ -30,7 +30,7 @@ const phoneNumberValidate = (phone_number) => {
 	const mask = '380931234567';
 
 	if(phoneNumber.length !== mask.length) {
-		return '400';
+		return 'corrupt';
 	}
 
 	return phoneNumber;

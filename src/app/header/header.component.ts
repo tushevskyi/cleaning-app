@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PageScrollConfig }  from 'ng2-page-scroll';
 import { TranslateService }  from '@ngx-translate/core';
+import { ViewChild, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -8,9 +9,11 @@ import { TranslateService }  from '@ngx-translate/core';
   styleUrls: ['./header.component.sass']
 })
 export class HeaderComponent implements OnInit {
-
+  @ViewChild('navbarToggler') navbarToggler:ElementRef;
+  
   navigations: Array<object>;
   lenguages: object;
+  isCollapsed: boolean = false;
 
   constructor(private translate: TranslateService) { 
   	PageScrollConfig.defaultScrollOffset = 90;
@@ -87,4 +90,13 @@ export class HeaderComponent implements OnInit {
     }
   }
 
+  navBarTogglerIsVisible() {
+    return this.navbarToggler.nativeElement.offsetParent !== null;
+  }
+
+  collapseNav() {
+    if (this.navBarTogglerIsVisible()) {
+      this.navbarToggler.nativeElement.click();
+    }
+  }
 }

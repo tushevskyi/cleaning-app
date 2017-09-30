@@ -44,45 +44,53 @@ export class PriceComponent implements OnInit {
   makeId: any;
   wave: string;
 
+  service_main_title: string;
+  service_type: string;
+  arr_index: any
+
   constructor() {
+    this.arr_index = this.arrIndexClosure();
+    this.service_main_title = 'service.main_title';
+    this.makeId = this.priceModalId();
+
   	this.wave = '/assets/svg/vesch_wave.svg';
-  	this.makeId = this.priceModalId();
+
   	this.services_info = [
 	  	{
-			img:'/assets/img/price-img/coat.png',
-			id: `#portfolioModal${this.makeId()}`,
-			img_text: 'верхняя одежда',
-			state: 'inactive'
+			  img:'/assets/img/price-img/coat.png',
+			  id: `#portfolioModal${this.makeId()}`,
+			  img_text: this.arr_index(),
+			  state: 'inactive'
 	  	},
 	  	{
 	  		img:'/assets/img/price-img/suite.png',
-			id: `#portfolioModal${this.makeId()}`,
-			img_text: 'деловая одежда',
-			state: 'inactive'
+			  id: `#portfolioModal${this.makeId()}`,
+			  img_text: this.arr_index(),
+			  state: 'inactive'
 	  	},
 	  	{
 	  		img:'/assets/img/price-img/fur.png',
-			id: `#portfolioModal${this.makeId()}`,
-			img_text: 'мех, кожа, дубленки',
-			state: 'inactive'
+			  id: `#portfolioModal${this.makeId()}`,
+			  img_text: this.arr_index(),
+			  state: 'inactive'
 	  	},
 	  	{
 	  		img:'/assets/img/price-img/clothes.png',
-			id: `#portfolioModal${this.makeId()}`,
-			img_text: 'одежда',
-			state: 'inactive'
+			  id: `#portfolioModal${this.makeId()}`,
+			  img_text: this.arr_index(),
+			  state: 'inactive'
 	  	},
 	  	{
 	  		img:'/assets/img/price-img/kids.png',
-			id: `#portfolioModal${this.makeId()}`,
-			img_text: 'KIDS',
-			state: 'inactive'
+			  id: `#portfolioModal${this.makeId()}`,
+			  img_text: this.arr_index(),
+			  state: 'inactive'
 	  	},
 	  	{
 	  		img:'/assets/img/price-img/carpet.png',
-			id: `#portfolioModal${this.makeId()}`,
-			img_text: 'домашний интерьер',
-			state: 'inactive'
+			  id: `#portfolioModal${this.makeId()}`,
+			  img_text: this.arr_index(),
+			  state: 'inactive'
 	  	},
   	]
   }
@@ -91,13 +99,16 @@ export class PriceComponent implements OnInit {
 
   priceModalId(): any {
     let i = 1;
-    return function() {
-    	return i++;
-    }  
+    return () => i++;
   }
 
   hoverAnimation(i): void {
   	this.services_info[i].state = (this.services_info[i].state === 'inactive' ? 'active' : 'inactive');
+  }
+
+  arrIndexClosure(): any {
+    let i = 0;
+    return () => `service.type.${i++}`;
   }
 
 }
