@@ -1,5 +1,10 @@
-import { Component, OnInit } 						  from '@angular/core';
+import { Component, OnInit } 						              from '@angular/core';
 import { trigger, state, style, animate, transition } from '@angular/animations';
+
+const stateName = {
+  ACTIVE: 'active',
+  INACTIVE: 'inactive'
+}
 
 @Component({
   selector: 'app-price',
@@ -46,7 +51,7 @@ export class PriceComponent implements OnInit {
 
   service_main_title: string;
   service_type: string;
-  arr_index: any
+  arr_index: any;
 
   constructor() {
     this.arr_index = this.arrIndexClosure();
@@ -60,37 +65,37 @@ export class PriceComponent implements OnInit {
 			  img:'/assets/img/price-img/coat.png',
 			  id: `#portfolioModal${this.makeId()}`,
 			  img_text: this.arr_index(),
-			  state: 'inactive'
+			  state: stateName.INACTIVE
 	  	},
 	  	{
 	  		img:'/assets/img/price-img/suite.png',
 			  id: `#portfolioModal${this.makeId()}`,
 			  img_text: this.arr_index(),
-			  state: 'inactive'
+			  state: stateName.INACTIVE
 	  	},
 	  	{
 	  		img:'/assets/img/price-img/fur.png',
 			  id: `#portfolioModal${this.makeId()}`,
 			  img_text: this.arr_index(),
-			  state: 'inactive'
+			  state: stateName.INACTIVE
 	  	},
 	  	{
 	  		img:'/assets/img/price-img/clothes.png',
 			  id: `#portfolioModal${this.makeId()}`,
 			  img_text: this.arr_index(),
-			  state: 'inactive'
+			  state: stateName.INACTIVE
 	  	},
 	  	{
 	  		img:'/assets/img/price-img/kids.png',
 			  id: `#portfolioModal${this.makeId()}`,
 			  img_text: this.arr_index(),
-			  state: 'inactive'
+			  state: stateName.INACTIVE
 	  	},
 	  	{
 	  		img:'/assets/img/price-img/carpet.png',
 			  id: `#portfolioModal${this.makeId()}`,
 			  img_text: this.arr_index(),
-			  state: 'inactive'
+			  state: stateName.INACTIVE
 	  	},
   	]
   }
@@ -102,8 +107,12 @@ export class PriceComponent implements OnInit {
     return () => i++;
   }
 
+  isStateActive(i): boolean {
+    return this.services_info[i].state === stateName.ACTIVE;
+  }
+
   hoverAnimation(i): void {
-  	this.services_info[i].state = (this.services_info[i].state === 'inactive' ? 'active' : 'inactive');
+  	this.services_info[i].state = this.isStateActive(i) ? stateName.INACTIVE : stateName.ACTIVE;
   }
 
   arrIndexClosure(): any {
