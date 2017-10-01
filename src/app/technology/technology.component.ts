@@ -31,7 +31,7 @@ export class TechnologyComponent implements OnInit {
 
   constructor() { 
 
-    this.technology_title_Text = "technologyText";
+    this.technology_title_Text = "technology_title_Text";
     this.technology_subtile_Text = "technology_subtile_Text";
 
   	this.technologyMainLogo = {
