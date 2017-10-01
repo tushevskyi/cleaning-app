@@ -13,9 +13,9 @@ const emailSendModule	= require('./emailsend');
 const clientInfoRef 	= dbModule.db.ref('clients');
 
 const sms = new SmsService({
-	login: '+380938285592', 
-	pass:  'VsegdaMolodoi01', 
-	name:  'Vesch'
+	login: '***********', 
+	pass:  '***********', 
+	name:  '***********'
 });
 
 const response = (res, promo_code, error, error_type = 'no error') => {
