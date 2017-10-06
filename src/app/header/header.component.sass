@@ -30,7 +30,7 @@
   border: none
   background: white
   padding-top: 25px
-  padding-bottom: 25px
+  padding-bottom: 45px
   // height: 90px
   a:focus
     outline: none
@@ -45,6 +45,33 @@
 
       @include mobile
         margin-left: 0
+
+  .phone-number_holder
+    display: flex
+    width: 230px
+    justify-content: space-between
+    bottom: 8px
+    right: 24px
+    position: absolute
+
+    @include custom-mobile
+      left: 0
+      right: 0
+      margin: auto
+
+    .desktop-number
+      display: block
+
+      @include custom-mobile
+        display: none
+
+    .mobile-number    
+      display: none
+
+      @include custom-mobile
+        display: block
+      
+
 
   .navbar-collapse
     justify-content: flex-end
@@ -77,8 +104,7 @@
       
           &:active,
           &:focus
-            color: black
-      
+            color: black       
     
   button.navbar-toggler
     font-size: 14px

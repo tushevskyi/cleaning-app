@@ -100,6 +100,6 @@ export class MapComponent implements OnInit {
   detectMarker(i) {
     this.mapOptions.lat  = this.markers[i].lat;
     this.mapOptions.lng  = this.markers[i].lng;
-    this.mapOptions.zoom = 17;
+    this.mapOptions.zoom = 16;
   }
 }

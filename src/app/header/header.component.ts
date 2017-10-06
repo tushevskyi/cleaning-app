@@ -14,6 +14,7 @@ export class HeaderComponent implements OnInit {
   navigations: Array<object>;
   lenguages: object;
   isCollapsed: boolean = false;
+  mobilePhones: object;
 
   constructor(private translate: TranslateService) { 
   	PageScrollConfig.defaultScrollOffset = 90;
@@ -27,6 +28,15 @@ export class HeaderComponent implements OnInit {
             return c / 2 * (-Math.pow(2, -10 * --t) + 2) + b;
         }
     };
+
+    this.mobilePhones = [
+      {
+        number: '0487010909'
+      },
+      {
+        number: '0949533909'
+      }
+    ]
 
     translate.addLangs(['ru', 'ua']);
     translate.setDefaultLang('ru');
@@ -98,5 +108,10 @@ export class HeaderComponent implements OnInit {
     if (this.navBarTogglerIsVisible()) {
       this.navbarToggler.nativeElement.click();
     }
+  }
+
+  makeCall(index) {
+   const number = this.mobilePhones[index].number;
+   window.location.href = `tel:${number}`; 
   }
 }

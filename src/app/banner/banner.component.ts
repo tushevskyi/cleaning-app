@@ -42,8 +42,4 @@ export class BannerComponent implements OnInit {
   ngOnInit() {
   }
 
-  phoneBtnClick() {
-    window.location.href='tel:048-701-09-09';
-  }
-
 }

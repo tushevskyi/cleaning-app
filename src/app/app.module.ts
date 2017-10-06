@@ -20,7 +20,6 @@ import { EmailSendComponent }      from './email-send/email-send.component';
 import { PriceModalComponent }     from './price-modal/price-modal.component';
 import { BannerComponent }         from './banner/banner.component';
 import { SmsSendComponent }        from './sms-send/sms-send.component';
-import { HeroFormComponent }       from './hero-form/hero-form.component';
 import { TechnologyComponent } 	   from './technology/technology.component';
 import { MapComponent } 		       from './map/map.component';
 import { HeaderComponent } 		     from './header/header.component';
@@ -32,7 +31,7 @@ export function HttpLoaderFactory(http: HttpClient) {
 
 @NgModule({
   declarations: [AppComponent, PriceComponent, EmailSendComponent, PriceModalComponent, BannerComponent, SmsSendComponent, 
-  				      HeroFormComponent, TechnologyComponent, MapComponent, HeaderComponent, FooterComponent],
+  				      TechnologyComponent, MapComponent, HeaderComponent, FooterComponent],
   imports:      [
                  BrowserModule, 
                  HttpClientModule, 

@@ -69,6 +69,10 @@ section.promo
 				.title-term_holder
 					margin-left: 42px
 
+					@include mobile
+						margin-left: 5px
+						text-align: center
+
 					.info_title	
 						position: relative
 						z-index: 2	
@@ -208,6 +212,9 @@ section.promo
 					display: flex
 					justify-content: center
 					align-items: center
+
+					@include mobile
+						min-width: 300px
 
 					&.error
 						background-color: rgb(179, 18, 15)

@@ -10,6 +10,8 @@
 					 [longitude]="mapOptions.lng" 
 					 class="google-map" 
 					 [scrollwheel]="false"
+					 [zoomControl]="false"
+					 [streetViewControl]="false"
 					 [zoom]="mapOptions.zoom">
 			  <agm-marker *ngFor="let m of markers; let i = index"
 					      [latitude]="m.lat"
