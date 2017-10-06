@@ -10,6 +10,7 @@ interface imgObj {
   templateUrl: './banner.component.html',
   styleUrls: ['./banner.component.sass']
 })
+
 export class BannerComponent implements OnInit {
 
   flagSvg: imgObj;
@@ -18,7 +19,7 @@ export class BannerComponent implements OnInit {
   roundTitle: imgObj;
 
 
-  constructor() { 
+  constructor() {
   	this.flagSvg = {
   		alt: 'vesch flag',
   		src: '../assets/svg/vesch_flag_small.svg'
@@ -33,7 +34,7 @@ export class BannerComponent implements OnInit {
   	};
   	this.roundTitle = {
   		alt: 'vesch round title',
-  		src: '../assets/svg/round_title.svg'	
+  		src: 'banner.round_title'
   	}
 
   }

@@ -2,7 +2,7 @@
 <header class="banner" id="masthed">
   <div class="container-fluid">
 		<figure class="round-title">
-			<img [src]="roundTitle.src" [alt]="roundTitle.alt">
+			<img [src]="roundTitle.src | translate" [alt]="roundTitle.alt">
 		</figure>
 		<figure class="main-logo-white">
 			<img [src]="mainLogoWhite.src" [alt]='mainLogoWhite.alt'>
@@ -15,15 +15,12 @@
   			</div>
   			<div class="banner_right-col">
   				<div class="right-col_title-holder">
-  					<p class="phone-number">
-  						048-701-09-09
-  					</p>
-					<div class="call-container" (click)="phoneBtnClick()">
+					<!-- <div class="call-container" (click)="phoneBtnClick()">
 						<div class="back-circle"></div>
 						<div class="button"></div>
 						<div class="front-circle"></div>
 						<i class="fa fa-phone phone"></i>
-					</div>
+					</div> -->
 	  				<h1 class="main-title" [innerHTML]=" 'banner.title_0' | translate "></h1>
 	  				<figure class="wave">
 	  					<img [src]="waveSvg.src" [alt]="waveSvg.alt">

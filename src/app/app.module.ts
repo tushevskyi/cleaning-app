@@ -24,6 +24,7 @@ import { HeroFormComponent }       from './hero-form/hero-form.component';
 import { TechnologyComponent } 	   from './technology/technology.component';
 import { MapComponent } 		       from './map/map.component';
 import { HeaderComponent } 		     from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
     return new TranslateHttpLoader(http);
@@ -31,7 +32,7 @@ export function HttpLoaderFactory(http: HttpClient) {
 
 @NgModule({
   declarations: [AppComponent, PriceComponent, EmailSendComponent, PriceModalComponent, BannerComponent, SmsSendComponent, 
-  				      HeroFormComponent, TechnologyComponent, MapComponent, HeaderComponent],
+  				      HeroFormComponent, TechnologyComponent, MapComponent, HeaderComponent, FooterComponent],
   imports:      [
                  BrowserModule, 
                  HttpClientModule, 

@@ -1,37 +1,31 @@
 <section id="map">
-	<div class="map-holder">
-		<agm-map [latitude]="lat" 
-				 [longitude]="lng" 
-				 class="google-map" 
-				 [scrollwheel]="false"
-				 [zoom]="zoom">
-		  <agm-marker *ngFor="let m of markers; let i = index"
-				      [latitude]="m.lat"
-				      [longitude]="m.lng"
-				      [label]="m.label"
-				      [markerDraggable]="m.draggable"
-				      (dragEnd)="markerDragEnd(m, $event)">
-		  </agm-marker>
-		</agm-map>
+	<div class="section-title">
+		<p>
+			{{ sectionTitle | translate }}
+		</p>
 	</div>
-	<div class="address-holder">
-		<div class="temporary-title">
-			<p>
-				{{ block_title | translate }}
-			</p>
-		</div>	
-		<div class="address-list">
-			<p *ngFor='let address of addresses' 
-			   [innerHTML]=" address.title | translate "></p>
+	<div class="map-container">
+		<div class="map-holder">
+			<agm-map [latitude]="mapOptions.lat" 
+					 [longitude]="mapOptions.lng" 
+					 class="google-map" 
+					 [scrollwheel]="false"
+					 [zoom]="mapOptions.zoom">
+			  <agm-marker *ngFor="let m of markers; let i = index"
+					      [latitude]="m.lat"
+					      [longitude]="m.lng"
+					      [label]="m.label"
+					      [markerDraggable]="m.draggable"
+					      (dragEnd)="markerDragEnd(m, $event)">
+			  </agm-marker>
+			</agm-map>
 		</div>
-	</div>
-</section>
-<section class="legal-text-block">
-	<div class="container">
-		<div class="legal-text">
-			<p>
-				{{ map_legal | translate }}
-			</p>
+		<div class="address-holder">
+			<div class="address-list">
+				<p *ngFor='let address of addresses; let i = index;' 
+				   [innerHTML]=" address.title | translate "
+				   (click)="detectMarker(i)"></p>
+			</div>
 		</div>
 	</div>
 </section>

@@ -1,86 +1,74 @@
 @import "../sass/variables"
 @import "../sass/mixins"
 
+
 #map
-	padding-bottom: 0
-	display: flex
-	padding-top: 50px
+	padding: 30px 0 0 0
 
-	@include mobile
-		flex-direction: column-reverse
-
-
-	.map-holder
-		width: 70%
-
-		@include tablet
-			width: 60%
-
-		@include mobile
-			width: 100%	
-
-		.google-map
-			height: 600px
-			min-height: 600px
-
-	.address-holder
-		min-height: 600px
-		width: 30%		
-		background-color: $main-dark-blue
-		padding: 2%
-
-		@include tablet
-			width: 40%
-
-		@include mobile
-			width: 100%
-			min-height: 400px	
-
-		.temporary-title
-			height: 20%
-			display: flex
-			justify-content: center
-			align-items: center
-
-			p
-				font-family: $Reg
-				font-size: 22px
-				color: white
-				cursor: default
-
-				@include tablet
-					font-size: 20px
-
-
-		.address-list
-			height: 80%
-			display: flex
-			flex-direction: column
-			justify-content: center
-
-			p
-				font-family: $Reg
-				font-size: 20px
-				color: white	
-				cursor: default		
-				padding-bottom: 10px
-
-				&:last-child
-					padding-bottom: 0
-
-				@include tablet
-					font-size: 18px
-
-section.legal-text-block
-	padding: 40px 0 10px 0
-
-	.legal-text
+	.section-title
 
 		p
-			font-family: $Reg
-			font-size: 14px					
-			color: #929494
+			font-family: $Arkhip
+			font-size: 30px
+			color: $main-dark-blue
+			text-transform: none
+			margin-bottom: 10px
+			text-align: center
+
+	.map-container
+		padding-bottom: 0
+		display: flex
+		padding-top: 20px
+
+		@include mobile
+			flex-direction: column-reverse
+
+
+		.map-holder
+			width: 70%
+
+			@include tablet
+				width: 60%
 
 			@include mobile
-				font-size: 12px
+				width: 100%	
+
+			.google-map
+				height: 600px
+				min-height: 600px	
+
+		.address-holder
+			display: flex
+			align-items: center
+			min-height: 600px
+			width: 30%		
+			background-color: $main-dark-blue
+			padding: 2%
+
+			@include tablet
+				width: 40%
+
+			@include mobile
+				width: 100%
+				min-height: 400px	
+
+			.address-list
+				height: 80%
+				display: flex
+				flex-direction: column
+				justify-content: center
+
+				p
+					font-family: $Reg
+					font-size: 20px
+					color: white	
+					cursor: default		
+					padding-bottom: 10px
+					cursor: pointer
+
+					&:last-child
+						padding-bottom: 0
+
+					@include tablet
+						font-size: 18px
 

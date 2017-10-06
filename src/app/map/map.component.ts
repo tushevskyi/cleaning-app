@@ -8,6 +8,12 @@ interface marker {
   draggable: boolean;
 }
 
+interface mapOptions {
+  lat: number;
+  lng: number;
+  zoom: number;
+}
+
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',
@@ -17,39 +23,38 @@ export class MapComponent implements OnInit {
 
   ngOnInit() {}
 
-  lat: number = 46.482876;
-  lng: number = 30.735535;
-  zoom: number = 11;
+  mapOptions: mapOptions = {
+    lat:  46.482876,
+    lng:  30.735535,
+    zoom: 11
+  };
   addresses: object;
 
-  block_title: string;
-  array_index: any;
-  map_legal: string;
+  sectionTitle: string;
+  adressArrayIndex: any;
 
   constructor() {
-    this.block_title = 'map.title';
-    this.array_index = this.arrayIndexClouser();
-    this.map_legal = 'map.legal_text';
-
+    this.sectionTitle = 'map.title';
+    this.adressArrayIndex = this.arrayIndexClouser();
 
   	this.addresses = [
   	  {
-  	  	title: this.array_index()
+  	  	title: this.adressArrayIndex()
   	  },
   	  {
-  	  	title: this.array_index()
+  	  	title: this.adressArrayIndex()
   	  },
   	  {
-  	  	title: this.array_index()
+  	  	title: this.adressArrayIndex()
   	  },
   	  {
-  	  	title: this.array_index()
+  	  	title: this.adressArrayIndex()
   	  },
   	  {
-  	  	title: this.array_index()
+  	  	title: this.adressArrayIndex()
   	  },
   	  {
-  	  	title: this.array_index()
+  	  	title: this.adressArrayIndex()
   	  }
   	]
   }
@@ -61,34 +66,40 @@ export class MapComponent implements OnInit {
 
    markers: marker[] = [
 	  {
-		lat: 46.482876,
-		lng: 30.735535,
-		draggable: false
+  		lat: 46.482876,
+  		lng: 30.735535,
+  		draggable: false
 	  },
 	  {
-		lat: 46.395277,
-		lng: 30.731210,
-		draggable: false
+  		lat: 46.395296,
+  		lng: 30.731092,
+  		draggable: false
 	  },
 	  {
-		lat: 46.477078,
-		lng: 30.731189,
-		draggable: false
+  		lat: 46.477078,
+  		lng: 30.731189,
+  		draggable: false
 	  },
 	  {
-	  	lat: 46.477544,
-		lng: 30.739430,
-		draggable: false
+      lat: 46.477237,
+      lng: 30.740306,
+      draggable: false
 	  },
 	  {
-	  	lat: 46.583864,
-		lng: 30.808094,
-		draggable: false
+      lat: 46.583864,
+      lng: 30.808094,
+      draggable: false
 	  },
 	  {
-	  	lat: 46.398737,
-		lng: 30.725253,
-		draggable: false
+      lat: 46.398258,
+      lng: 30.726402,
+      draggable: false 
 	  }
-  ]
+  ];
+
+  detectMarker(i) {
+    this.mapOptions.lat  = this.markers[i].lat;
+    this.mapOptions.lng  = this.markers[i].lng;
+    this.mapOptions.zoom = 17;
+  }
 }
