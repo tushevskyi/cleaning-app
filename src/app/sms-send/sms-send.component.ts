@@ -112,7 +112,6 @@ export class SmsSendComponent implements OnInit {
         this.promoCode = data.promoCode;
         this.smsSendResponse = data.successStatus;
         this.phoneNumberErrorStatus = data.phoneNumberErrorStatus;
-        console.log(this.responseSmsObj);
         this.hideElementAnimation();
         this.clearInputValue();
       }); 
