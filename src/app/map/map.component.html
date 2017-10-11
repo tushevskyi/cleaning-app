@@ -14,6 +14,7 @@
 					 [streetViewControl]="false"
 					 [zoom]="mapOptions.zoom">
 			  <agm-marker *ngFor="let m of markers; let i = index"
+			  			  (markerClick)="detectMarker(i)"
 					      [latitude]="m.lat"
 					      [longitude]="m.lng"
 					      [label]="m.label"
