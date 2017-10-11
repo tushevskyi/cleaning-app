@@ -41,7 +41,7 @@ export class TechnologyComponent implements OnInit {
 
   	this.technologyDescription = [
   		{
-  			img_src: '../assets/img/technology/1.png',
+  			img_src: '../assets/img/technology/1.jpg',
   			img_alt: 'vesch technology image',
   			icon_src: '../assets/svg/1.svg',
   			icon_alt: 'vesch technology icon',
@@ -49,7 +49,7 @@ export class TechnologyComponent implements OnInit {
   			description_text: 'technologyDescription.description_text_0'
   		},
   		{
-  			img_src: '../assets/img/technology/2.png',
+  			img_src: '../assets/img/technology/2.jpg',
   			img_alt: 'vesch technology image',
   			icon_src: '../assets/svg/2.svg',
   			icon_alt: 'vesch technology icon',
@@ -57,7 +57,7 @@ export class TechnologyComponent implements OnInit {
   			description_text: 'technologyDescription.description_text_1'
   		},
   		{
-  			img_src: '../assets/img/technology/3.png',
+  			img_src: '../assets/img/technology/3.jpg',
   			img_alt: 'vesch technology image',
   			icon_src: '../assets/svg/3.svg',
   			icon_alt: 'vesch technology icon',

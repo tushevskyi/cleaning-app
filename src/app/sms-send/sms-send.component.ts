@@ -118,9 +118,3 @@ export class SmsSendComponent implements OnInit {
   }
 
 }
-
-// todo list
-// validate phone number on client and server +
-// save email data 
-// return callback with ok if smssend +
-

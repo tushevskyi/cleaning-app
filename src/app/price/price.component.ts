@@ -62,37 +62,37 @@ export class PriceComponent implements OnInit {
 
   	this.services_info = [
 	  	{
-			  img:'/assets/img/price-img/coat.png',
+			  img:'/assets/img/price-img/coat.jpg',
 			  id: `#portfolioModal${this.makeId()}`,
 			  img_text: this.arr_index(),
 			  state: stateName.INACTIVE
 	  	},
 	  	{
-	  		img:'/assets/img/price-img/suite.png',
+	  		img:'/assets/img/price-img/suite.jpg',
 			  id: `#portfolioModal${this.makeId()}`,
 			  img_text: this.arr_index(),
 			  state: stateName.INACTIVE
 	  	},
 	  	{
-	  		img:'/assets/img/price-img/fur.png',
+	  		img:'/assets/img/price-img/fur.jpg',
 			  id: `#portfolioModal${this.makeId()}`,
 			  img_text: this.arr_index(),
 			  state: stateName.INACTIVE
 	  	},
 	  	{
-	  		img:'/assets/img/price-img/clothes.png',
+	  		img:'/assets/img/price-img/clothes.jpg',
 			  id: `#portfolioModal${this.makeId()}`,
 			  img_text: this.arr_index(),
 			  state: stateName.INACTIVE
 	  	},
 	  	{
-	  		img:'/assets/img/price-img/kids.png',
+	  		img:'/assets/img/price-img/kids.jpg',
 			  id: `#portfolioModal${this.makeId()}`,
 			  img_text: this.arr_index(),
 			  state: stateName.INACTIVE
 	  	},
 	  	{
-	  		img:'/assets/img/price-img/carpet.png',
+	  		img:'/assets/img/price-img/carpet.jpg',
 			  id: `#portfolioModal${this.makeId()}`,
 			  img_text: this.arr_index(),
 			  state: stateName.INACTIVE
