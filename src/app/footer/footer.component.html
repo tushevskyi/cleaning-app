@@ -1,14 +1,9 @@
 <section class="legal-text-block">
 	<div class="container">
 		<div class="social-icons">
-			<figure class="icons_fb">
-				<a href="https://www.facebook.com/vesch.ua/" target="_blank" rel="noreferrer">
-					<img src="../assets/svg/fb.svg" alt="facebook icon">	
-				</a>
-			</figure>
-			<figure class="icons_inst">
-				<a href="https://www.instagram.com/vesch.ua/" target="_blank" rel="noreferrer">
-					<img src="../assets/svg/inst.svg" alt="instagram icon">
+			<figure *ngFor="let icon of icons" [class]="icon.class">
+				<a [href]="icon.href" target="_blank" rel="noreferrer">
+					<img [src]="icon.src" [alt]='icon.alt'>
 				</a>
 			</figure>
 		</div>
