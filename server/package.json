@@ -1,0 +1,21 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "server for cleaning-app",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Bogdan Tushevskyi",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "firebase": "^4.6.0",
+    "firebase-admin": "^5.4.3",
+    "helmet": "^3.9.0",
+    "node-alphasms": "^1.0.0",
+    "nodemailer": "^4.3.1"
+  }
+}

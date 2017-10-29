@@ -2,7 +2,7 @@
 
 const express    		= require('express');
 const router     		= express.Router();
-const SmsService 		= require('node-smsukraine');
+const SmsService 		= require('node-alphasms');
 const http       	    = require('http');
 
 const rndmModule 	    = require('../services/promoCode');
@@ -13,9 +13,9 @@ const emailSendModule	= require('./emailsend');
 const clientInfoRef 	= dbModule.db.ref('clients');
 
 const sms = new SmsService({
-	login: '***********', 
-	pass:  '***********', 
-	name:  '***********'
+	login: '**********', 
+	pass:  '**********', 
+	name:  '**********'
 });
 
 const response = (res, promo_code, error, error_type = 'no error') => {

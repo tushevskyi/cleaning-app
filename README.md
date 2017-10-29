@@ -1,14 +1,22 @@
 # CleaningApp
 
+App for representation of eco cleaning service [Vesch](http://vesch.od.ua/) in Odessa Ukraine. 
+Has sms send and email send functionality for participation in company action.
+Based on 
+	Angular 4.3.5 
+	Node v8.4.0
+	Express
+	Google Firebase
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.2.4.
 
-## Development server
+## Development NodeJS server 
+
+Run `node server.js` from `server` folder. Navigate to `http://localhost:8080/`. Before running node server add service firebase account, node-alphasms and node-mailer service login information.
+
+## Development Angular server 
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|module`.
 
 ## Build
 
