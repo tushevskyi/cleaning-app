@@ -31,7 +31,7 @@ router.post('/', (req, res) => {
 	});
 
 	const mailOptions = {
-		from: 'vesch.promo@gmail.com',
+		from: '**********',
 		to: mail,
 		subject: 'Участие в акции от Vesch', 
 		text: `Ваш акционный код ${promoCode}`
