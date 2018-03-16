@@ -1,6 +1,6 @@
-# CleaningApp
+# CleaningApp http://vesch.ua/
 
-App for representation of eco cleaning service [Vesch](http://vesch.od.ua/) in Odessa Ukraine. 
+App for representation of eco cleaning service [Vesch](http://vesch.ua/) in Odessa Ukraine. 
 Has sms send and email send functionality for participation in company action.
 Based on 
 	Angular 4.3.5 
