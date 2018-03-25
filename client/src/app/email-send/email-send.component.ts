@@ -39,10 +39,3 @@ export class EmailSendComponent implements OnInit {
 
  
 }
-
-
-/*todo list
-validate email on client and server
-save email data
-return callback with ok if maillsend +
-*/
